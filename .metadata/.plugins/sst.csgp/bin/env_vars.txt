@@ -1,0 +1,4 @@
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM Pro 4.3.0\ide\plugins\sst.tm_1.1.2.201311201110\CSHOME\
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM Pro 4.3.0\ide\plugins\sst.csgp_1.0.5.201311201110\CSHOME
+C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM Pro 4.3.0\ARMTools
+C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\.metadata\.plugins\sst.tm
