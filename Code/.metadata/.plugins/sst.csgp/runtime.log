@@ -1,0 +1,10 @@
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/10, 2014   13:30  58.202]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\dbrue\Documents\GitHub\Liftsteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/10, 2014   13:31  2.702]
+------------------------------------

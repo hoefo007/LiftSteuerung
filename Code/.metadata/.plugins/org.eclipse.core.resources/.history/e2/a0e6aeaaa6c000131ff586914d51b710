@@ -1,0 +1,9 @@
+/*
+ * LiftSteuerung_test.cpp
+ *
+ *  Created on: Apr 10, 2014
+ *      Author: dbrue
+ */
+
+#include "LiftSteuerung.h"
+
