@@ -1,0 +1,35 @@
+/*
+ * UART.cpp
+ *
+ *  Created on: Apr 18, 2014
+ *      Author: Jan Huggler
+ */
+
+#include "UART.h"
+#include "uart.h"
+
+UART::UART() {
+	// TODO Auto-generated constructor stub
+	CARME_UART_Init(USART_TypeDef *UARTx,  USART_InitTypeDef *pUSART_InitStruct);
+
+}
+
+UART::~UART() {
+	// TODO Auto-generated destructor stub
+}
+
+UART::UARTRecInt(){
+
+}
+
+UART::UARTSendInt(){
+
+}
+
+UART::sendString(String){
+
+}
+
+String UART::receiveString(){
+
+}

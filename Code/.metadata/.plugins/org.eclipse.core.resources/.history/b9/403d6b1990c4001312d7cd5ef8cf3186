@@ -1,0 +1,18 @@
+/*
+ * ProxyTransceiverFloorIndicator.cpp
+ *
+ *  Created on: Apr 15, 2014
+ *      Author: Jan Huggler
+ */
+
+#include "ProxyTransceiverFloorIndicator.h"
+
+ProxyTransceiverFloorIndicator::ProxyTransceiverFloorIndicator() {
+	// TODO Auto-generated constructor stub
+
+}
+
+ProxyTransceiverFloorIndicator::~ProxyTransceiverFloorIndicator() {
+	// TODO Auto-generated destructor stub
+}
+

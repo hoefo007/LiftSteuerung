@@ -1,41 +1,11 @@
-13:35:03 **** Rebuild of configuration Debug for project Liftsteuerung ****
+13:41:37 **** Incremental Build of configuration Debug for project Liftsteuerung ****
 Info: Internal Builder is used for build
-arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu90 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -g -Wall -o src\tiny_printf.o ..\src\tiny_printf.c 
-arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -g -Wa,--warn -x assembler-with-cpp -o src\startup.o ..\src\startup.s 
-arm-atollic-eabi-g++ src\tiny_printf.o src\startup.o -o Liftsteuerung.elf -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T..\stm32f4_flash.ld -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=Liftsteuerung.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 
-src\startup.o: In function `LoopFillZerobss':
-C:\Users\dbrue\Documents\GitHub\Liftsteuerung\Code\Liftsteuerung\Debug/..\src/startup.s:87: undefined reference to `main'
-collect2.exe: error: ld returned 1 exit status
-13:37:08 **** Incremental Build of configuration Debug for project Liftsteuerung ****
-Info: Internal Builder is used for build
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\main.o ..\src\main.cpp 
-arm-atollic-eabi-g++ src\tiny_printf.o src\startup.o src\main.o -o Liftsteuerung.elf -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T..\stm32f4_flash.ld -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=Liftsteuerung.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 
-src\startup.o: In function `LoopFillZerobss':
-C:\Users\dbrue\Documents\GitHub\Liftsteuerung\Code\Liftsteuerung\Debug/..\src/startup.s:87: undefined reference to `main'
-collect2.exe: error: ld returned 1 exit status
-13:53:04 **** Incremental Build of configuration Debug for project Liftsteuerung ****
-Info: Internal Builder is used for build
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\FloorChooseButtons.o ..\src\FloorChooseButtons.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\Cabin.o ..\src\Cabin.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\Dispatcher.o ..\src\Dispatcher.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\LiftSteuerung.o ..\src\LiftSteuerung.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\FloorIndicator.o ..\src\FloorIndicator.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\IOManager.o ..\src\IOManager.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\ControlUnit.o ..\src\ControlUnit.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\Motor.o ..\src\Motor.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\LiftSteuerung_test.o ..\src\LiftSteuerung_test.cpp 
-..\src\LiftSteuerung_test.cpp: In function 'int main(int, char**)':
-..\src\LiftSteuerung_test.cpp:15:18: error: 'system' was not declared in this scope
-13:53:35 **** Incremental Build of configuration Debug for project Liftsteuerung ****
-Info: Internal Builder is used for build
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\LiftSteuerung_test.o ..\src\LiftSteuerung_test.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\PositionSensors.o ..\src\PositionSensors.cpp 
-arm-atollic-eabi-g++ -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -fno-rtti -g -Wall -fno-threadsafe-statics -o src\CallButtons.o ..\src\CallButtons.cpp 
-arm-atollic-eabi-g++ src\tiny_printf.o src\startup.o src\PositionSensors.o src\Motor.o src\LiftSteuerung_test.o src\LiftSteuerung.o src\IOManager.o src\FloorIndicator.o src\FloorChooseButtons.o src\Dispatcher.o src\ControlUnit.o src\CallButtons.o src\Cabin.o -o Liftsteuerung.elf -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T..\stm32f4_flash.ld -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=Liftsteuerung.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 
-C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM Pro 4.3.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM Pro 4.3.1\Tools\arm-atollic-reports.jar sizeinfo Liftsteuerung.elf 
-Generate build reports...
-Print size information
-   text	   data	    bss	    dec	    hex	filename
-   9924	    412	   8224	  18560	   4880	Liftsteuerung.elf
-Print size information done
-Generate build reports done
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu90 -DHSE_VALUE=25000000 -DSYSCALL_USART=USART1 -I../src -I../Libraries/BSP/ -I../Libraries/sGUI/ -O0 -ffunction-sections -fdata-sections -g -Wall -o src\intRemap.o ..\src\intRemap.c 
+..\src\intRemap.c:10:1: warning: return type defaults to 'int' [-Wreturn-type]
+..\src\intRemap.c:10:1: warning: conflicting types for 'TIM2_IRQHandler' [enabled by default]
+In file included from ..\src\intRemap.c:8:0:
+..\src\intRemap.h:26:7: note: previous declaration of 'TIM2_IRQHandler' was here
+..\src\intRemap.c: In function 'TIM2_IRQHandler':
+..\src\intRemap.c:12:14: error: called object 'tim2IRQFunc' is not a function
+..\src\intRemap.c: In function 'USART1_IRQHandler':
+..\src\intRemap.c:18:15: error: called object 'usartIRQFunc' is not a function

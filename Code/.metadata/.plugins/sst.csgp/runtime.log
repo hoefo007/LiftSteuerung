@@ -8,3 +8,83 @@ GUI is waiting for subprocess to be done...
 Execution done. EXIT CODE = 0
   Logging finished.  ## CURRENT TIME  : [4/10, 2014   13:31  2.702]
 ------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/14, 2014   20:36  3.91]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/14, 2014   20:36  6.101]
+------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/15, 2014   13:7  25.723]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/15, 2014   13:7  28.953]
+------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/16, 2014   19:46  26.742]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/16, 2014   19:46  29.862]
+------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/17, 2014   15:25  3.297]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/17, 2014   15:25  6.517]
+------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/18, 2014   12:37  15.691]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/18, 2014   12:37  18.801]
+------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/18, 2014   18:59  56.140]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/18, 2014   18:59  59.240]
+------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/18, 2014   19:12  17.691]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/18, 2014   19:12  20.921]
+------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [4/18, 2014   20:3  36.9]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : C:\Users\Jan Huggler\Documents\GitHub\LiftSteuerung\Code\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [4/18, 2014   20:3  39.259]
+------------------------------------

@@ -1,0 +1,22 @@
+/*
+ * UARTDispatcher.h
+ *
+ *  Created on: Apr 18, 2014
+ *      Author: Jan Huggler
+ */
+
+#ifndef UARTDISPATCHER_H_
+#define UARTDISPATCHER_H_
+
+#include "Informer.h"
+
+class UARTDispatcher: public Informer {
+public:
+	UARTDispatcher();
+	virtual ~UARTDispatcher();
+	void send(string);
+	void receive(Observer);
+	void update();
+};
+
+#endif /* UARTDISPATCHER_H_ */

@@ -1,0 +1,14 @@
+/*
+ * Informer.h
+ *
+ *  Created on: Apr 14, 2014
+ *      Author: Jan Huggler
+ */
+
+#ifndef INFORMER_H_
+#define INFORMER_H_
+
+class Informer {
+};
+
+#endif /* INFORMER_H_ */

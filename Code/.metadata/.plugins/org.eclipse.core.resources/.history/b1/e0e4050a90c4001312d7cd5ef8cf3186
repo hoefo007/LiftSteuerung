@@ -1,0 +1,18 @@
+/*
+ * ProxyTransceiverChooseButtons.cpp
+ *
+ *  Created on: Apr 15, 2014
+ *      Author: Jan Huggler
+ */
+
+#include "ProxyTransceiverChooseButtons.h"
+
+ProxyTransceiverChooseButtons::ProxyTransceiverChooseButtons() {
+	// TODO Auto-generated constructor stub
+
+}
+
+ProxyTransceiverChooseButtons::~ProxyTransceiverChooseButtons() {
+	// TODO Auto-generated destructor stub
+}
+

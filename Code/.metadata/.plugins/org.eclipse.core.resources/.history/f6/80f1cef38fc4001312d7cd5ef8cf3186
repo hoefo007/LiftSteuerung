@@ -1,0 +1,19 @@
+/*
+ * ProxyTransceiverFloorIndicator.h
+ *
+ *  Created on: Apr 15, 2014
+ *      Author: Jan Huggler
+ */
+
+#ifndef PROXYTRANSCEIVERFLOORINDICATOR_H_
+#define PROXYTRANSCEIVERFLOORINDICATOR_H_
+
+class ProxyTransceiverFloorIndicator {
+private:
+	char identChar;
+public:
+	ProxyTransceiverFloorIndicator();
+	virtual ~ProxyTransceiverFloorIndicator();
+};
+
+#endif /* PROXYTRANSCEIVERFLOORINDICATOR_H_ */

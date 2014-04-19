@@ -9,9 +9,13 @@
 #define FLOORINDICATOR_H_
 
 class FloorIndicator {
+	private:
+	IOManager * IOMan;
+	char actualFloor;
 public:
-	FloorIndicator();
+	FloorIndicator(*IOManager);
 	virtual ~FloorIndicator();
+	void setFloor(char);
 };
 
 #endif /* FLOORINDICATOR_H_ */

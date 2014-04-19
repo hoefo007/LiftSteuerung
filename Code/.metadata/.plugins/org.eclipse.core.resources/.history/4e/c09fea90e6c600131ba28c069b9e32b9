@@ -1,0 +1,19 @@
+/*
+ * IOInformer.h
+ *
+ *  Created on: Apr 18, 2014
+ *      Author: Jan Huggler
+ */
+
+#ifndef IOINFORMER_H_
+#define IOINFORMER_H_
+
+#include "Informer.h"
+
+class IOInformer: public Informer {
+public:
+	IOInformer();
+	virtual ~IOInformer();
+};
+
+#endif /* IOINFORMER_H_ */

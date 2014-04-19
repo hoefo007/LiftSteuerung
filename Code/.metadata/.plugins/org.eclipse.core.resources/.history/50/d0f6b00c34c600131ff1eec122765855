@@ -1,0 +1,24 @@
+/*
+ * IOManager.h
+ *
+ *  Created on: Apr 10, 2014
+ *      Author: dbrue
+ */
+
+#ifndef IOMANAGER_H_
+#define IOMANAGER_H_
+
+class IOManager : public Informer {
+private:
+	void ButtonInt();
+	void SwitchInt();
+public:
+	IOManager();
+	virtual ~IOManager();
+	uint8_t getButtons();
+	uint8_t getSwitches();
+	void setLeds(uint8_t, uint8_t);
+
+};
+
+#endif /* IOMANAGER_H_ */

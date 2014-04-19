@@ -2,9 +2,9 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="com.atollic.truestudio.exe.debug.181962110;com.atollic.truestudio.exe.debug.181962110.;com.atollic.truestudio.exe.debug.toolchain.gcc.1704505830;com.atollic.truestudio.gcc.input.689623960">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/include"/>
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/include-fixed"/>
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/include"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/include-fixed"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
@@ -347,13 +347,12 @@
 </instance>
 <instance id="com.atollic.truestudio.exe.debug.181962110;com.atollic.truestudio.exe.debug.181962110.;com.atollic.truestudio.exe.debug.toolchain.gpp.782174772;com.atollic.truestudio.gpp.input.1450490153">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include/c++/4.7.3"/>
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include/c++/4.7.3/arm-atollic-eabi/armv7e-m/fpu"/>
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include/c++/4.7.3/arm-atollic-eabi"/>
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include/c++/4.7.3/backward"/>
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/include"/>
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/include-fixed"/>
-<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.1\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include/c++/4.7.3"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include/c++/4.7.3/arm-atollic-eabi/armv7e-m/fpu"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include/c++/4.7.3/backward"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/include"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/include-fixed"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for arm pro 4.3.0\armtools\bin\../lib/gcc/arm-atollic-eabi/4.7.3/../../../../arm-atollic-eabi/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__cplusplus=199711L"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>

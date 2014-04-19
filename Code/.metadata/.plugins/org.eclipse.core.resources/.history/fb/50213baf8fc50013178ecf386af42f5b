@@ -1,0 +1,32 @@
+/*
+ * IOManager.cpp
+ *
+ *  Created on: Apr 10, 2014
+ *      Author: dbrue
+ */
+
+#include "IOManager.h"
+#include "carme.h"
+#include "carme_io1.h"
+#include "carme_io2.h"
+
+IOManager::IOManager() {
+	// TODO Auto-generated constructor stub
+
+}
+
+IOManager::~IOManager() {
+	// TODO Auto-generated destructor stub
+}
+
+IOManager::getSwitches(){
+
+}
+
+IOManager::getButtons(){
+
+}
+
+IOManager::setLeds(char value, char mask){
+
+}

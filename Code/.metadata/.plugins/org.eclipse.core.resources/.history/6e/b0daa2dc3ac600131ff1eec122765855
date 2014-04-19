@@ -1,0 +1,25 @@
+/*
+ * intRemap.h
+ *
+ *  Created on: Apr 17, 2014
+ *      Author: Jan Huggler
+ */
+
+#ifndef INTREMAP_H_
+#define INTREMAP_H_
+
+extern "C" {
+	typedef enum
+	{
+		TIM2=0
+	}IntBlock;
+
+
+	void tim2IRQFunc(void);
+
+	void TIM2_IRQHandler(void);
+	void registerIRQ(uint8_t Int, void *func);
+	void unregisterIRQ(uint8_t Int);
+}
+
+#endif /* INTREMAP_H_ */

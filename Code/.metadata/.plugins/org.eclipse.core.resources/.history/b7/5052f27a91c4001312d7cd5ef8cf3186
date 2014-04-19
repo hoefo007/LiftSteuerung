@@ -1,0 +1,19 @@
+/*
+ * IOManager.h
+ *
+ *  Created on: Apr 10, 2014
+ *      Author: dbrue
+ */
+
+#ifndef IOMANAGER_H_
+#define IOMANAGER_H_
+
+class IOManager : public Informer {
+public:
+	IOManager();
+	virtual ~IOManager();
+	char getButtons();
+	char getSwitches();
+};
+
+#endif /* IOMANAGER_H_ */

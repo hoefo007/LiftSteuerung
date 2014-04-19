@@ -1,0 +1,12 @@
+/*
+ * intRemap.c
+ *
+ *  Created on: Apr 17, 2014
+ *      Author: Jan Huggler
+ */
+
+TIM2_IRQHandler(){
+	if(tim2IRQFunc != 0){
+		tim2IRQFunc();
+	}
+}

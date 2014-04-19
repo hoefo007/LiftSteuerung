@@ -1,0 +1,18 @@
+/*
+ * UARTDispatcher.cpp
+ *
+ *  Created on: Apr 18, 2014
+ *      Author: Jan Huggler
+ */
+
+#include "UARTDispatcher.h"
+
+UARTDispatcher::UARTDispatcher() {
+	// TODO Auto-generated constructor stub
+
+}
+
+UARTDispatcher::~UARTDispatcher() {
+	// TODO Auto-generated destructor stub
+}
+

@@ -3,7 +3,6 @@
 <workbenchAdvisor/>
 <window height="768" width="1024" x="150" y="150">
 <fastViewData fastViewLocation="1024"/>
-<intro standby="false"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
@@ -53,12 +52,6 @@
 </viewState>
 </view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console"/>
-<view id="org.eclipse.ui.internal.introview" partName="Information Center">
-<viewState>
-<presentation currentPage="file:///C:/Program%20Files%20(x86)/Atollic/TrueSTUDIO%20for%20ARM%20Pro%204.3.0/ide/plugins/com.atollic.truestudio.pro.arm.doc_1.0.0/welcome/index.html" restore="true"/>
-<standbyPart/>
-</viewState>
-</view>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List"/>
 <view id="org.eclipse.ui.texteditor.TemplatesView" partName="Templates"/>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
@@ -66,7 +59,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.internal.introview" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.cdt.internal.ui.CPerspectiveFactory" id="org.eclipse.cdt.ui.CPerspective" label="C/C++"/>
 <alwaysOnActionSet id="cn.pande.eclipsex.fullscreen.actionSet"/>
@@ -136,55 +129,55 @@
 <new_wizard_action id="org.eclipse.mylyn.tasks.ui.wizards.new.repository.task"/>
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
-<hide_menu_item_id id="org.eclipse.search.ui.views.SearchView"/>
-<hide_menu_item_id id="org.eclipse.ui.views.ResourceNavigator"/>
-<hide_menu_item_id id="org.eclipse.ui.views.TaskList"/>
-<hide_menu_item_id id="org.eclipse.cdt.ui.includeBrowser"/>
-<hide_menu_item_id id="org.eclipse.mylyn.tasks.ui.bug.report"/>
 <hide_menu_item_id id="org.eclipse.cdt.ui.buildWorkingSetConfigs"/>
 <hide_menu_item_id id="org.eclipse.ui.project.buildProject"/>
 <hide_menu_item_id id="org.eclipse.ui.internal.ide.actions.BuildSetMenu"/>
-<hide_menu_item_id id="org.eclipse.ui.project.buildAutomatically"/>
-<hide_menu_item_id id="org.eclipse.cdt.ui.buildConfigMenuAction"/>
-<hide_menu_item_id id="org.eclipse.cdt.make.ui.targetCreateCommand"/>
-<hide_menu_item_id id="org.eclipse.ui.project.cleanAction"/>
-<hide_menu_item_id id="org.eclipse.cdt.make.ui.makeTargetAction"/>
-<hide_menu_item_id id="org.eclipse.cdt.make.ui.prjmenu"/>
+<hide_menu_item_id id="org.eclipse.mylyn.tasks.ui.bug.report"/>
+<hide_menu_item_id id="org.eclipse.search.ui.views.SearchView"/>
 <hide_menu_item_id id="org.eclipse.cdt.ui.manageConfigsAction2"/>
 <hide_menu_item_id id="org.eclipse.cdt.ui.workingSets.buildMenu"/>
+<hide_menu_item_id id="org.eclipse.cdt.make.ui.makeTargetAction"/>
+<hide_menu_item_id id="org.eclipse.ui.views.TaskList"/>
+<hide_menu_item_id id="org.eclipse.ui.project.cleanAction"/>
 <hide_menu_item_id id="org.eclipse.cdt.ui.prjmenu"/>
+<hide_menu_item_id id="org.eclipse.cdt.make.ui.prjmenu"/>
+<hide_menu_item_id id="org.eclipse.ui.project.buildAutomatically"/>
+<hide_menu_item_id id="org.eclipse.ui.views.ResourceNavigator"/>
+<hide_menu_item_id id="org.eclipse.cdt.ui.buildConfigMenuAction"/>
+<hide_menu_item_id id="org.eclipse.cdt.make.ui.targetCreateCommand"/>
 <hide_menu_item_id id="sst.ci.commands.Inspection"/>
+<hide_menu_item_id id="org.eclipse.cdt.ui.includeBrowser"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.ui.CElementCreationActionSet"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.navigate.opentype"/>
-<hide_toolbar_item_id id="org.eclipse.ui.project.buildAll"/>
 <hide_toolbar_item_id id="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"/>
 <hide_toolbar_item_id id="org.eclipse.mylyn.cdt.ui.editor.folding.auto"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.edit.text.c.toggleMarkOccurrences"/>
-<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters"/>
-<hide_toolbar_item_id id="org.eclipse.ui.navigate.previous"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.actions.NewProjectDropDown"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.actions.NewFileDropDown"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.actions.NewFolderDropDown"/>
-<hide_toolbar_item_id id="org.eclipse.mylyn.tasks.ui.command.openTask"/>
-<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleBlockSelectionMode"/>
-<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<hide_toolbar_item_id id="newWizardDropDown"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.actions.NewTypeDropDown"/>
-<hide_toolbar_item_id id="org.eclipse.ui.navigate.next"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.buildConfigToolbarAction"/>
-<hide_toolbar_item_id id="org.eclipse.debug.internal.ui.actions.RunDropDownAction"/>
-<hide_toolbar_item_id id="edu.hawaii.ics.csdl.jupiter.ui.actionSets"/>
-<hide_toolbar_item_id id="sst.tm.testActionSet"/>
-<hide_toolbar_item_id id="sst.csut.unittestActionSet"/>
-<hide_toolbar_item_id id="sst.csut.ui.actions.UnitTestDropDownAction"/>
-<hide_toolbar_item_id id="sst.tm.actions.TestDropDownAction"/>
-<hide_toolbar_item_id id="sst.ci.ui.toolbar"/>
-<hide_toolbar_item_id id="sst.ci.commands.Inspection"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.buildConfigActionSet"/>
-<hide_toolbar_item_id id="org.eclipse.cdt.ui.buildActiveConfigToolbarAction"/>
 <hide_toolbar_item_id id="org.eclipse.debug.internal.ui.actions.DebugDropDownAction"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.SkipAllBreakpoints"/>
-<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
+<hide_toolbar_item_id id="edu.hawaii.ics.csdl.jupiter.ui.actionSets"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.edit.text.c.toggleMarkOccurrences"/>
+<hide_toolbar_item_id id="sst.csut.unittestActionSet"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters"/>
+<hide_toolbar_item_id id="org.eclipse.mylyn.tasks.ui.command.openTask"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.actions.NewFolderDropDown"/>
+<hide_toolbar_item_id id="newWizardDropDown"/>
+<hide_toolbar_item_id id="sst.tm.actions.TestDropDownAction"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.actions.NewTypeDropDown"/>
+<hide_toolbar_item_id id="sst.ci.commands.Inspection"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.buildConfigToolbarAction"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.navigate.opentype"/>
+<hide_toolbar_item_id id="sst.tm.testActionSet"/>
+<hide_toolbar_item_id id="org.eclipse.ui.project.buildAll"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.buildConfigActionSet"/>
+<hide_toolbar_item_id id="sst.ci.ui.toolbar"/>
+<hide_toolbar_item_id id="sst.csut.ui.actions.UnitTestDropDownAction"/>
+<hide_toolbar_item_id id="org.eclipse.ui.navigate.previous"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.buildActiveConfigToolbarAction"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.actions.NewProjectDropDown"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.ui.actions.NewFileDropDown"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleBlockSelectionMode"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<hide_toolbar_item_id id="org.eclipse.ui.navigate.next"/>
+<hide_toolbar_item_id id="org.eclipse.debug.internal.ui.actions.RunDropDownAction"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.ui.views.TaskList"/>
@@ -194,7 +187,6 @@
 <view id="org.eclipse.ui.texteditor.TemplatesView"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView"/>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
-<view id="org.eclipse.ui.internal.introview"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -210,13 +202,11 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@f41240" ratio="0.749499" ratioLeft="748" ratioRight="250" relationship="2" relative="topLeft">
-<folder activePageID="org.eclipse.ui.internal.introview" appearance="2" expanded="1">
-<page content="org.eclipse.ui.internal.introview" label="Information Center"/>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.249499" ratioLeft="249" ratioRight="749" relationship="2" relative="topLeft"/>
@@ -259,6 +249,10 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+</trimArea>
 <trimArea IMemento.internal.id="1024">
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>

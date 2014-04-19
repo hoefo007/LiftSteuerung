@@ -1,0 +1,53 @@
+/*
+ * UARTDispatcher.cpp
+ *
+ *  Created on: Apr 18, 2014
+ *      Author: Jan Huggler
+ */
+
+#include "UARTDispatcher.h"
+
+UARTDispatcher::UARTDispatcher() {
+	// TODO Auto-generated constructor stub
+
+}
+
+UARTDispatcher::~UARTDispatcher() {
+	// TODO Auto-generated destructor stub
+}
+
+UARTDispatcher::send(string){
+
+}
+
+UARTDispatcher::receive(Observer){
+
+}
+
+UARTDispatcher::update(){
+	String temp;
+	temp = uart.receiveString();
+	inform(temp);
+}
+
+UARTDispatcher::inform(String inp){
+	switch(inp[0]){
+	case ''
+	}
+}
+
+UARTDispatcher::registrate(Observer *obsv){
+	observerList.push_back(obsv);
+}
+
+UARTDispatcher::unregistrate(Observer *obsv){
+	std::list<Observer*>::iterator ptr;
+	ptr = observerList.begin();
+	while((ptr != obsv ) && (ptr != observerList.end())){
+		if(ptr = obsv){
+			observerList.pop(ptr);
+		}
+		ptr++;
+	}
+	return;
+}

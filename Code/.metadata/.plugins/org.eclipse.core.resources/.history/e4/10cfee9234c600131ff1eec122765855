@@ -1,0 +1,36 @@
+/*
+ * IOManager.cpp
+ *
+ *  Created on: Apr 10, 2014
+ *      Author: dbrue
+ */
+
+#include "IOManager.h"
+#include "carme.h"
+#include "carme_io1.h"
+#include "carme_io2.h"
+
+IOManager::IOManager() {
+	// TODO Auto-generated constructor stub
+
+}
+
+IOManager::~IOManager() {
+	// TODO Auto-generated destructor stub
+}
+
+uint8_t IOManager::getSwitches(){
+	uint8_t temp;
+	CARME_IO1_SWITCH_Get(&temp);
+	return temp;
+}
+
+uint8_t IOManager::getButtons(){
+	uint8_t temp;
+	CARME_IO1_BUTTON_Get(&temp);
+	return temp;
+}
+
+IOManager::setLeds(uint8_t value, uint8_t mask){
+	CARME_IO1_LED_Set(value, mask);
+}
