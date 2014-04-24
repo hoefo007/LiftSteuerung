@@ -16,3 +16,5 @@ Cabin::~Cabin() {
 	// TODO Auto-generated destructor stub
 }
 
+void Cabin::setActualFloor(char char1) {
+}

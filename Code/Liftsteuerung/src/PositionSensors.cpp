@@ -16,3 +16,8 @@ PositionSensors::~PositionSensors() {
 	// TODO Auto-generated destructor stub
 }
 
+void PositionSensors::getSensedPosition() {
+}
+
+void PositionSensors::setNotifyPosition(char char1) {
+}

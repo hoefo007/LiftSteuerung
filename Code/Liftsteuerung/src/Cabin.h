@@ -9,9 +9,12 @@
 #define CABIN_H_
 
 class Cabin {
+private:
+	char actualFloor;
 public:
 	Cabin();
 	virtual ~Cabin();
+	void setActualFloor(char);
 };
 
 #endif /* CABIN_H_ */

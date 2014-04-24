@@ -16,3 +16,8 @@ Motor::~Motor() {
 	// TODO Auto-generated destructor stub
 }
 
+void Motor::startMotor(char char1) {
+}
+
+void Motor::stopMotor() {
+}

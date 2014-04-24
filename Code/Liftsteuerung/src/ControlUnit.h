@@ -9,9 +9,13 @@
 #define CONTROLUNIT_H_
 
 class ControlUnit {
+private:
+	int actualFloor;
 public:
 	ControlUnit();
 	virtual ~ControlUnit();
+	void updateSensedPosition();
+	void updateCall();
 };
 
 #endif /* CONTROLUNIT_H_ */

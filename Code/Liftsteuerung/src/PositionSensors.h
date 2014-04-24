@@ -9,9 +9,16 @@
 #define POSITIONSENSORS_H_
 
 class PositionSensors {
+private:
+char sensedPosition;
+char notifyAt;
+
 public:
 	PositionSensors();
 	virtual ~PositionSensors();
+	void getSensedPosition();
+	void setNotifyPosition(char);
+
 };
 
 #endif /* POSITIONSENSORS_H_ */

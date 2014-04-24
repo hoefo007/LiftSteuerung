@@ -9,9 +9,13 @@
 #define MOTOR_H_
 
 class Motor {
+private:
+	char motorState;
 public:
 	Motor();
 	virtual ~Motor();
+	void startMotor(char);
+	void stopMotor();
 };
 
 #endif /* MOTOR_H_ */

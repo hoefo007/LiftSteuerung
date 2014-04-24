@@ -9,9 +9,13 @@
 #define CALLBUTTONS_H_
 
 class CallButtons {
+private:
+
 public:
 	CallButtons();
 	virtual ~CallButtons();
+	char getCallFloor();
+
 };
 
 #endif /* CALLBUTTONS_H_ */

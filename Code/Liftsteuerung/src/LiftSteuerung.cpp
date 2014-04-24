@@ -6,10 +6,12 @@
  */
 
 #include "LiftSteuerung.h"
-
+#include "Cabin.h"
+#include "ControlUnit.h"
 LiftSteuerung::LiftSteuerung() {
 	// TODO Auto-generated constructor stub
-
+	Controllunit  myControlUnit();
+	Cabin myCabin();
 }
 
 LiftSteuerung::~LiftSteuerung() {

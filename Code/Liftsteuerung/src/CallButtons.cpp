@@ -16,3 +16,5 @@ CallButtons::~CallButtons() {
 	// TODO Auto-generated destructor stub
 }
 
+char CallButtons::getCallFloor() {
+}
