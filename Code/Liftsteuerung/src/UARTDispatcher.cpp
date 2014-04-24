@@ -6,10 +6,11 @@
  */
 
 #include "UARTDispatcher.h"
+#include "UARTC.h"
 
 UARTDispatcher::UARTDispatcher() {
 	// TODO Auto-generated constructor stub
-	uart = new UARTC();
+	uart = new UARTC(this);
 }
 
 UARTDispatcher::~UARTDispatcher() {
@@ -20,7 +21,7 @@ void UARTDispatcher::send(std::string){
 
 }
 
-std::string UARTDispatcher::receive(UARTObserver *obsv){
+std::string UARTDispatcher::receive(Observer *obsv){
 
 }
 
@@ -42,12 +43,12 @@ void UARTDispatcher::inform(std::string inp){
 	//ptr->update(inp);
 }
 
-void UARTDispatcher::registrate(UARTObserver *obsv){
+void UARTDispatcher::registrate(Observer *obsv){
 	observerList.push_back(obsv);
 }
 
-void UARTDispatcher::unregistrate(UARTObserver *obsv){
-	std::list<UARTObserver*>::iterator ptr;
+void UARTDispatcher::unregistrate(Observer *obsv){
+	std::list<Observer*>::iterator ptr;
 	observerList.remove(obsv);
 	/*ptr = observerList.begin();
 	while(((ptr*) != obsv ) && (ptr != observerList.end())){

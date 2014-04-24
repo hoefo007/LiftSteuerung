@@ -9,9 +9,12 @@
 #define UARTDISPATCHER_H_
 
 #include "Informer.h"
-#include "UARTC.h"
+
+#include "Observer.h"
 #include <string>
 #include <map>
+
+class UARTC;
 
 class UARTDispatcher: public Informer {
 private:
@@ -22,10 +25,10 @@ public:
 	UARTDispatcher();
 	virtual ~UARTDispatcher();
 	void send(std::string);
-	std::string receive(UARTObserver*);
+	std::string receive(Observer*);
 	void update();
-	void registrate(UARTObserver*);
-	void unregistrate(UARTObserver*);
+	void registrate(Observer*);
+	void unregistrate(Observer*);
 };
 
 #endif /* UARTDISPATCHER_H_ */

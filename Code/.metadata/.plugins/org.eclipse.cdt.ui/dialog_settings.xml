@@ -8,6 +8,7 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="UARTObserver"/>
 			<item value="enum"/>
 		</list>
 	</section>

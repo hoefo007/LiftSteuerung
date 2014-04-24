@@ -13,19 +13,20 @@
 #include <string>
 #include <string.h>
 #include <list>
-#include "UARTDispatcher.h"
+
 
 #define UART_REC_BUF_SIZE 10
 #define UART_SND_BUF_SIZE 10
 
+class UARTDispatcher;
 
 class UARTC {
 private:
-	std::list<std::string> recvBufferList;
-	UARTDispatcher *observer;
-	int bufferIndex;
-	char recvBuffer[UART_REC_BUF_SIZE];
-	void UARTRecInt();
+	static std::list<std::string> recvBufferList;
+	static UARTDispatcher *observer;
+	static int bufferIndex;
+	static char recvBuffer[UART_REC_BUF_SIZE];
+	static void UARTRecInt();
 	//void UARTSendInt();
 public:
 	UARTC(UARTDispatcher*);

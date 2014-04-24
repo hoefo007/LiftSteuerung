@@ -18,7 +18,8 @@ IOManager::IOManager() {
 	CARME_IO2_Init();
 
 	//TODO Timer init
-	registerIRQ(TIM, this->TimerInt());
+	registerIRQ(TIM, TimerInt);
+
 }
 
 IOManager::~IOManager() {
@@ -74,15 +75,15 @@ void IOManager::inform(uint8_t switches, uint8_t buttons){
 		/*if(((ptr.switches & switches)|(ptr.buttons & buttons)) != 0){
 			ptr.update();
 		}*/
-		if(((switchMap[ptr*] & switches) | (buttonMap[ptr*] & buttons)) != 0){
-			ptr->update();
+		if(((switchMap[*ptr] & switches) | (buttonMap[*ptr] & buttons)) != 0){
+			(*ptr)->update();
 		}
 		ptr++;
 	}
 	return;
 }
 
-void IOManager::TimerInt(){
+void TimerInt(){
 
 }
 

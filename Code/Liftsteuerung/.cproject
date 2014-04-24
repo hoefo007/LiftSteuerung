@@ -87,6 +87,8 @@
 								<option id="com.atollic.truestudio.ld.general.cclib.702148429" name="Runtime Library:" superClass="com.atollic.truestudio.ld.general.cclib"/>
 								<option id="com.atollic.truestudio.ldcc.optimization.do_garbage.963508173" name="Dead code removal" superClass="com.atollic.truestudio.ldcc.optimization.do_garbage" value="true" valueType="boolean"/>
 								<option id="com.atollic.truestudio.ldcc.general.scriptfile.734338084" name="Linker script" superClass="com.atollic.truestudio.ldcc.general.scriptfile" value="..\stm32f4_flash.ld" valueType="string"/>
+								<option id="com.atollic.truestudio.ldcc.libraries.list.184689123" name="Libraries" superClass="com.atollic.truestudio.ldcc.libraries.list" valueType="libs"/>
+								<option id="com.atollic.truestudio.ldcc.libraries.searchpath.876170070" name="Library search path" superClass="com.atollic.truestudio.ldcc.libraries.searchpath" valueType="libPaths"/>
 								<inputType id="com.atollic.truestudio.ldcc.input.314251210" name="Input" superClass="com.atollic.truestudio.ldcc.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -214,4 +216,5 @@
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>

@@ -6,7 +6,9 @@
  */
 
 #include "UARTC.h"
+#include "UARTDispatcher.h"
 #include "uart.h"
+#include "intRemap.h"
 
 UARTC::UARTC(UARTDispatcher *obsv) {
 	// TODO Auto-generated constructor stub
@@ -30,6 +32,8 @@ UARTC::UARTC(UARTDispatcher *obsv) {
 
     /* Receive Data register not empty interrupt */
     USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+
+    registerIRQ(USART, UARTRecInt);
 
     bufferIndex = 0;
 }

@@ -17,9 +17,9 @@
 
 class IOManager : public Informer {
 private:
-	void ButtonInt();
-	void SwitchInt();
-	void TimerInt();
+	static void ButtonInt();
+	static void SwitchInt();
+	static void TimerInt();
 	std::list<Observer*> observerList;
 	std::map<Observer*, uint8_t>switchMap;
 	std::map<Observer*, uint8_t>buttonMap;
