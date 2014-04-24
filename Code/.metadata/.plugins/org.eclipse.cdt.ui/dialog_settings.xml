@@ -4,6 +4,13 @@
 	<item value="Default C++ header template" key="LastUsedHeaderTemplate"/>
 	<section name="completion_proposal_size">
 	</section>
+	<section name="PDOMSearchPage">
+		<item value="227191" key="searchFlags"/>
+		<item value="false" key="caseSensitive"/>
+		<list key="previousPatterns">
+			<item value="enum"/>
+		</list>
+	</section>
 	<section name="org.eclipse.cdt.internal.ui.wizards.classwizard.NewBaseClassSelectionDialogSettings">
 		<item value="true" key="show_structs"/>
 		<item value="true" key="show_lowlevel"/>
@@ -21,22 +28,19 @@
 		<item value="0" key="y"/>
 		<item value="721" key="x"/>
 	</section>
-	<section name="PDOMSearchPage">
-		<item value="227191" key="searchFlags"/>
-		<item value="false" key="caseSensitive"/>
-		<list key="previousPatterns">
-			<item value="enum"/>
-		</list>
-	</section>
 	<section name="NewClassWizardPage">
 		<item value="true" key="stubSelected1"/>
-		<item value="false" key="namespaceSelected"/>
 		<item value="false" key="testFileSelected"/>
+		<item value="false" key="namespaceSelected"/>
 		<item value="false" key="stubInline1"/>
 		<item value="true" key="stubVirtual1"/>
 		<item value="false" key="stubInline0"/>
-		<item value="" key="namespace"/>
 		<item value="true" key="stubSelected0"/>
+		<item value="" key="namespace"/>
+	</section>
+	<section name="RenameInformationPopup">
+	</section>
+	<section name="CRenameRefactoringInputPage">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>

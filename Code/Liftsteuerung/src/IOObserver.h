@@ -9,6 +9,7 @@
 #define IOOBSERVER_H_
 
 #include "Observer.h"
+#include <stdint.h>
 
 class IOObserver: public Observer {
 private:

@@ -6,14 +6,17 @@
  */
 
 #include "FloorIndicator.h"
-
-FloorIndicator::FloorIndicator(IOManager *ioMan) {
+/*
+FloorIndicator::FloorIndicator() {
 	// TODO Auto-generated constructor stub
-	this->IOMan = ioMan;
-}
+}*/
 
 FloorIndicator::~FloorIndicator() {
 	// TODO Auto-generated destructor stub
+}
+FloorIndicator::FloorIndicator(IOManager *ioMan) {
+	// TODO Auto-generated constructor stub
+	IOMan = ioMan;
 }
 
 void FloorIndicator::setFloor(char floor){

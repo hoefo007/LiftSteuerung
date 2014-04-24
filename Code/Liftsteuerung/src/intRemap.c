@@ -19,9 +19,9 @@ void USART1_IRQHandler(void){
 	}
 }
 
-void registerIRQ(uint8_t Int, void *func){
+void registerIRQ(IntType Int, void (*func)(void)){
 	switch(Int){
-	case TIM2:	tim2IRQFunc = func;
+	case TIM:	tim2IRQFunc = func;
 				break;
 	case USART: usartIRQFunc = func;
 				break;
@@ -29,9 +29,11 @@ void registerIRQ(uint8_t Int, void *func){
 	}
 }
 
-void unregisterIRQ(uint8_t Int){
+void unregisterIRQ(IntType Int){
 	switch(Int){
-		case TIM2:	tim2IRQFunc = 0;
+		case TIM:	tim2IRQFunc = 0;
+					break;
+		case USART:	usartIRQFunc = 0;
 					break;
 		default:	break;
 		}

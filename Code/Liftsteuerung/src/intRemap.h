@@ -14,19 +14,16 @@
 extern "C" {
 #endif /* __cplusplus */
 
-typedef enum _IntType {
-		TIM2=0,
-		USART
-	} IntType;
+typedef enum {TIM, USART, SEARCH} IntType;
 
 
-	void *tim2IRQFunc;//(void);
-	void *usartIRQFunc;//(void);
+	void (*tim2IRQFunc)(void);//(void);
+	void (*usartIRQFunc)(void);//(void);
 
 	void TIM2_IRQHandler(void);
 	void USART1_IRQHandler(void);
-	void registerIRQ(uint8_t Int, void *func);
-	void unregisterIRQ(uint8_t Int);
+	void registerIRQ(IntType Int, void (*func)(void));
+	void unregisterIRQ(IntType Int);
 
 #ifdef __cplusplus
 }

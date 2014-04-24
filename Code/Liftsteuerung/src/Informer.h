@@ -8,13 +8,16 @@
 #ifndef INFORMER_H_
 #define INFORMER_H_
 
+#include "Observer.h"
+#include <list>
+
 class Informer {
-private:
+protected:
 	std::list<Observer*> observerList;
-	virtual void inform()=0;
+	virtual void inform() = 0;
 public:
-	virtual void registrate(Observer*)=0;
-	virtual void unregistrate(Observer*)=0;
+	virtual void registrate(Observer*) = 0;
+	virtual void unregistrate(Observer*) = 0;
 
 };
 

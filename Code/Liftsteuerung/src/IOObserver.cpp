@@ -7,12 +7,4 @@
 
 #include "IOObserver.h"
 
-IOObserver::IOObserver() {
-	// TODO Auto-generated constructor stub
-
-}
-
-IOObserver::~IOObserver() {
-	// TODO Auto-generated destructor stub
-}
 

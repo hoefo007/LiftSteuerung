@@ -8,10 +8,16 @@
 #ifndef PROXYTRANSCEIVERCHOOSEBUTTONS_H_
 #define PROXYTRANSCEIVERCHOOSEBUTTONS_H_
 
-class ProxyTransceiverChooseButtons : public UARTObserver{
+#include "UARTObserver.h"
+
+class ProxyTransceiverChooseButtons : public Observer {
+private:
+	char identChar;
 public:
 	ProxyTransceiverChooseButtons(char);
 	virtual ~ProxyTransceiverChooseButtons();
+
+	void update(std::string);
 };
 
 #endif /* PROXYTRANSCEIVERCHOOSEBUTTONS_H_ */

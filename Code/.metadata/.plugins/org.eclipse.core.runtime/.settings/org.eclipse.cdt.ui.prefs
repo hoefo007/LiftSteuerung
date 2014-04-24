@@ -7,5 +7,6 @@ hoverModifiers=org.eclipse.cdt.ui.BestMatchHover;0;org.eclipse.cdt.debug.interna
 org.eclipse.cdt.ui.text.templates.custom=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
 sourceHoverBackgroundColor=255,255,225
 spelling_locale_initialized=true
+spelling_user_dictionary_encoding=
 useAnnotationsPrefPage=true
 useQuickDiffPrefPage=true

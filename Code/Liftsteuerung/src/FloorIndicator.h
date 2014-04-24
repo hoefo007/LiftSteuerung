@@ -8,11 +8,14 @@
 #ifndef FLOORINDICATOR_H_
 #define FLOORINDICATOR_H_
 
+#include "IOManager.h"
+
 class FloorIndicator {
 	private:
-	IOManager * IOMan;
+	IOManager *IOMan;
 	char actualFloor;
 public:
+	//FloorIndicator();
 	FloorIndicator(*IOManager);
 	virtual ~FloorIndicator();
 	void setFloor(char);

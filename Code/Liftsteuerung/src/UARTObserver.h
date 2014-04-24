@@ -9,13 +9,13 @@
 #define UARTOBSERVER_H_
 
 #include "Observer.h"
+#include <string>;
 
 class UARTObserver: public Observer {
-private:
+protected:
 	char identChar;
 public:
-	UARTObserver();
-	virtual ~UARTObserver();
+	virtual void update(std::string)=0;
 };
 
 #endif /* UARTOBSERVER_H_ */
