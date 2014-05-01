@@ -8,7 +8,13 @@
 #ifndef LIFTSTEUERUNG_H_
 #define LIFTSTEUERUNG_H_
 
+	class Controlunit;
+	class Cabin;
+
 class LiftSteuerung {
+private:
+		Controlunit  *myControlUnit;
+		Cabin *myCabin;
 public:
 	LiftSteuerung();
 	virtual ~LiftSteuerung();

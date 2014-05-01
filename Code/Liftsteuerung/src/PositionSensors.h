@@ -16,7 +16,7 @@ char notifyAt;
 public:
 	PositionSensors();
 	virtual ~PositionSensors();
-	void getSensedPosition();
+	int getSensedPosition();
 	void setNotifyPosition(char);
 
 };
