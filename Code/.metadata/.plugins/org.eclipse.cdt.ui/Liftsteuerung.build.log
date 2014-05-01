@@ -1,4 +1,4 @@
-13:50:52 **** Incremental Build of configuration Debug for project Liftsteuerung ****
+08:40:38 **** Incremental Build of configuration Debug for project Liftsteuerung ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ src\tiny_printf.o src\startup.o src\intRemap.o src\UARTDispatcher.o src\UARTC.o src\ProxyTransceiverFloorIndicator.o src\ProxyTransceiverChooseButtons.o src\PositionSensors.o src\Observer.o src\Motor.o src\LiftSteuerung_test.o src\LiftSteuerung.o src\Informer.o src\IOManager.o src\FloorIndicator.o src\FloorChooseButtons.o src\ControlUnit.o src\CallButtons.o src\Cabin.o -o Liftsteuerung.elf -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T..\stm32f4_flash.ld -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=Liftsteuerung.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 
 src\IOManager.o:(.bss.tim2IRQFunc+0x0): multiple definition of `tim2IRQFunc'
@@ -7,5 +7,5 @@ src\IOManager.o:(.bss.usartIRQFunc+0x0): multiple definition of `usartIRQFunc'
 src\UARTC.o:(.bss.usartIRQFunc+0x0): first defined here
 collect2.exe: error: ld returned 1 exit status
 
-13:50:53 Build Finished (took 645ms)
+08:40:39 Build Finished (took 640ms)
 

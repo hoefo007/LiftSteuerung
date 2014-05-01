@@ -29,9 +29,11 @@ public:
 	uint8_t getButtons();
 	uint8_t getSwitches();
 	void setLeds(uint8_t, uint8_t);
+	void registrate(Observer*);
 	void registrate(Observer*, uint8_t, uint8_t);
 	void unregistrate(Observer*);
 	uint16_t getADVal(CARME_IO2_ADC_CHANNEL);
+	void inform();
 	void inform(uint8_t, uint8_t);
 };
 

@@ -18,7 +18,7 @@ IOManager::IOManager() {
 	CARME_IO2_Init();
 
 	//TODO Timer init
-	registerIRQ(TIM, TimerInt);
+	//registerIRQ(TIM, TimerInt);
 
 }
 
@@ -55,17 +55,12 @@ void IOManager::registrate(Observer *obsv, uint8_t switches, uint8_t buttons){
 	buttonMap[obsv] = buttons;
 }
 
+void IOManager::registrate(Observer *obsv){
+	observerList.push_back(obsv);
+}
+
 void IOManager::unregistrate(Observer *obsv){
 	observerList.remove(obsv);
-	/*std::list<Observer*>::iterator ptr;
-	ptr = observerList.begin();
-	while(((ptr*) != obsv ) && (ptr != observerList.end())){
-		if((ptr*) = obsv){
-			//observerList.pop(ptr);
-		}
-		ptr++;
-	}
-	return;*/
 }
 
 void IOManager::inform(uint8_t switches, uint8_t buttons){
@@ -81,6 +76,15 @@ void IOManager::inform(uint8_t switches, uint8_t buttons){
 		ptr++;
 	}
 	return;
+}
+
+void IOManager::inform(){
+	std::list<Observer*>::iterator ptr;
+	ptr = observerList.begin();
+	while(ptr != observerList.end()){
+		ptr.update();
+		ptr++;
+	}
 }
 
 void TimerInt(){
