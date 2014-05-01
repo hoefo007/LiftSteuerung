@@ -10,7 +10,7 @@
 
 class Observer {
 public:
-	void update();
+	virtual void update()=0;
 };
 
 #endif /* OBSERVER_H_ */
