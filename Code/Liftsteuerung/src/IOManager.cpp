@@ -82,7 +82,7 @@ void IOManager::inform(){
 	std::list<Observer*>::iterator ptr;
 	ptr = observerList.begin();
 	while(ptr != observerList.end()){
-		ptr.update();
+		(*ptr)->update();
 		ptr++;
 	}
 }
