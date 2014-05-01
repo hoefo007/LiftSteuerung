@@ -7,12 +7,14 @@
 
 #ifndef UARTDISPATCHER_H_
 #define UARTDISPATCHER_H_
+#include <string>
+#include <map>
+
 
 #include "Informer.h"
 
-#include "Observer.h"
-#include <string>
-#include <map>
+//#include "Observer.h"
+class Observer;
 
 class UARTC;
 
@@ -29,6 +31,7 @@ public:
 	void update();
 	void registrate(Observer*);
 	void unregistrate(Observer*);
+	void inform();
 };
 
 #endif /* UARTDISPATCHER_H_ */

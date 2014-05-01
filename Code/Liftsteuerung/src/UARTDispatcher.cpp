@@ -15,10 +15,11 @@ UARTDispatcher::UARTDispatcher() {
 
 UARTDispatcher::~UARTDispatcher() {
 	// TODO Auto-generated destructor stub
+	//delete uart;
 }
 
-void UARTDispatcher::send(std::string){
-
+void UARTDispatcher::send(std::string input){
+	uart->sendString(input);
 }
 
 std::string UARTDispatcher::receive(Observer *obsv){
@@ -32,15 +33,9 @@ void UARTDispatcher::update(){
 }
 
 void UARTDispatcher::inform(std::string inp){
-	/*std::list<Observer*>::iterator ptr;
-	ptr = observerList.begin();
-	while((ptr != observerList.end()) && (ptr.identChar != inp[0])){
-		ptr++;
-	}*/
 	if(charToObserver.find(inp[0]) != charToObserver.end()){
 		charToObserver[inp[0]]->update();
 	}
-	//ptr->update(inp);
 }
 
 void UARTDispatcher::registrate(Observer *obsv){
@@ -48,13 +43,10 @@ void UARTDispatcher::registrate(Observer *obsv){
 }
 
 void UARTDispatcher::unregistrate(Observer *obsv){
-	std::list<Observer*>::iterator ptr;
 	observerList.remove(obsv);
-	/*ptr = observerList.begin();
-	while(((ptr*) != obsv ) && (ptr != observerList.end())){
-		if((ptr*) = obsv){
-			//observerList.pop(ptr);
-		}
-		ptr++;
-	}*/
+
+}
+
+void UARTDispatcher::inform(){
+
 }
