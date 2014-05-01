@@ -17,8 +17,8 @@ extern "C" {
 typedef enum {TIM, USART, SEARCH} IntType;
 
 
-	void (*tim2IRQFunc)(void);//(void);
-	void (*usartIRQFunc)(void);//(void);
+	extern void (*tim2IRQFunc)(void);//(void);
+	extern void (*usartIRQFunc)(void);//(void);
 
 	void TIM2_IRQHandler(void);
 	void USART1_IRQHandler(void);

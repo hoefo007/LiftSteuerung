@@ -7,6 +7,9 @@
 
 #include "intRemap.h"
 
+	void (*tim2IRQFunc)(void);
+	void (*usartIRQFunc)(void);
+
 void TIM2_IRQHandler(){
 	if(tim2IRQFunc != 0){
 		tim2IRQFunc();
