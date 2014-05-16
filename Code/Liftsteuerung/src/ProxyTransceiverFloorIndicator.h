@@ -8,7 +8,7 @@
 #ifndef PROXYTRANSCEIVERFLOORINDICATOR_H_
 #define PROXYTRANSCEIVERFLOORINDICATOR_H_
 
-#include "UARTObserver.h"
+#include "UARTDispatcher.h"
 
 class FloorIndicator;
 class UARTDispatcher;

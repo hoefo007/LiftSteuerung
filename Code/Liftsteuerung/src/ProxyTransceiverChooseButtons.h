@@ -8,7 +8,7 @@
 #ifndef PROXYTRANSCEIVERCHOOSEBUTTONS_H_
 #define PROXYTRANSCEIVERCHOOSEBUTTONS_H_
 
-#include "UARTObserver.h"
+#include "UARTDispatcher.h"
 
 class UARTDispatcher;
 class FloorChooseButtons;

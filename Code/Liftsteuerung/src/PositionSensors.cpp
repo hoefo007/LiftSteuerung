@@ -6,18 +6,18 @@
  */
 
 #include "PositionSensors.h"
+#include "IOManager.h"
 
-PositionSensors::PositionSensors() {
-	// TODO Auto-generated constructor stub
-
+PositionSensors::PositionSensors(IOManager *IOMan) {
+	this->IOMan = IOMan;
 }
 
 PositionSensors::~PositionSensors() {
 	// TODO Auto-generated destructor stub
 }
 
-int PositionSensors::getSensedPosition() {
-	return(3);
+uint8_t PositionSensors::getSensedPosition() {
+	return IOMan->getSwitches();
 }
 
 void PositionSensors::setNotifyPosition(char char1) {

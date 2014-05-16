@@ -16,11 +16,6 @@ FloorIndicator::FloorIndicator(IOManager *IOMan) {
 FloorIndicator::~FloorIndicator() {
 	// TODO Auto-generated destructor stub
 }
-/*
-FloorIndicator::FloorIndicator(IOManager *ioMan) {
-	// TODO Auto-generated constructor stub
-	IOMan = ioMan;
-}*/
 
 void FloorIndicator::setFloor(char floor){
 	actualFloor = floor;

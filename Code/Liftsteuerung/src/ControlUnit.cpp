@@ -10,6 +10,9 @@
 #include "PositionSensors.h"
 #include "FloorIndicator.h"
 #include "FloorChooseButtons.h"
+#include "UARTDispatcher.h"
+#include "ProxyChooseButtons.h"
+#include "ProxyFloorIndicator.h"
 
 
 ControlUnit::ControlUnit() {
@@ -18,9 +21,13 @@ ControlUnit::ControlUnit() {
 	IOMan = new IOManager();
 	myMotor=new Motor;
 	myCallButtons= new CallButtons;
-	myPositionSensors= new PositionSensors;
+	myPositionSensors= new PositionSensors(IOMan);
 	myFloorChooseButtons= new FloorChooseButtons(IOMan);
 	myFloorIndicator= new FloorIndicator(IOMan);
+	UARTDisp = new UARTDispatcher();
+	ChooseButProxy = new ProxyChooseButtons(UARTDisp);
+	FloorIndProxy = new ProxyFloorIndicator(UARTDisp);
+
 }
 
 ControlUnit::~ControlUnit() {
@@ -30,7 +37,9 @@ ControlUnit::~ControlUnit() {
 void ControlUnit::updateSensedPosition() {
 	actualFloor = myPositionSensors->getSensedPosition();
 	myFloorIndicator->setFloor(actualFloor);
+	FloorIndProxy->setFloor(actualFloor);
 }
 
 void ControlUnit::updateCall() {
+	nextFloor = ChooseButProxy->getChosenFloor();
 }

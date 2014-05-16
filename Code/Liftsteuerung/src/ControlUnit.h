@@ -7,17 +7,23 @@
 
 #ifndef CONTROLUNIT_H_
 #define CONTROLUNIT_H_
+
+#include <stdint.h>
 	class Motor;
 	class CallButtons;
 	class PositionSensors;
 	class FloorChooseButtons;
 	class FloorIndicator;
 	class IOManager;
+	class ProxyChooseButtons;
+	class ProxyFloorIndicator;
+	class UARTDispatcher;
 
 
 class ControlUnit {
 private:
-	int actualFloor;
+	uint8_t actualFloor;
+	uint8_t nextFloor;
 	// abstahierte Hardware
 	IOManager *IOMan;
 	Motor *myMotor;
@@ -25,6 +31,9 @@ private:
 	PositionSensors *myPositionSensors;
 	FloorChooseButtons *myFloorChooseButtons;
 	FloorIndicator *myFloorIndicator;
+	ProxyChooseButtons *ChooseButProxy;
+	ProxyFloorIndicator *FloorIndProxy;
+	UARTDispatcher *UARTDisp;
 public:
 	ControlUnit();
 	virtual ~ControlUnit();

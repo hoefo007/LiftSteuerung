@@ -8,15 +8,19 @@
 #ifndef POSITIONSENSORS_H_
 #define POSITIONSENSORS_H_
 
+#include <stdint.h>
+
+class IOManager;
+
 class PositionSensors {
 private:
-char sensedPosition;
-char notifyAt;
-
+	char sensedPosition;
+	char notifyAt;
+	IOManager *IOMan;
 public:
-	PositionSensors();
+	PositionSensors(IOManager*);
 	virtual ~PositionSensors();
-	int getSensedPosition();
+	uint8_t getSensedPosition();
 	void setNotifyPosition(char);
 
 };

@@ -7,7 +7,6 @@
 
 #ifndef UARTDISPATCHER_H_
 #define UARTDISPATCHER_H_
-#include <string>
 #include <map>
 
 
