@@ -12,7 +12,7 @@
 #include "uart.h"
 #include "intRemap.h"
 
-std::list<std::string> UARTC::recvBufferList;
+std::list<char*> UARTC::recvBufferList;
 UARTDispatcher *UARTC::observer;
 int UARTC::bufferIndex;
 char UARTC::recvBuffer[UART_REC_BUF_SIZE];
@@ -59,14 +59,11 @@ UARTC::~UARTC() {
 
 void UARTC::UARTRecInt(){
 	uint16_t temp;
-	std::string tempString;
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
 		temp = USART_ReceiveData(USART1);
 		recvBuffer[bufferIndex] = static_cast<char>(temp);
 		bufferIndex++;
 		if(temp == 0){
-			std::string tempString(recvBuffer, bufferIndex);
-			recvBufferList.push_back(tempString);
 			bufferIndex = 0;
 			observer->update();
 		}
@@ -79,12 +76,6 @@ void UARTC::sendString(std::string sendStr){
 	CARME_UART_SendString(CARME_UART0, temp);
 }
 
-std::string UARTC::receiveString(){
-	std::stringstream ss;
-	std::string temp = recvBufferList.front();
-	int len = temp.length();
-	ss << temp.length();
-	sendString(ss.str());
-	recvBufferList.pop_front();
-	return temp;
+char* UARTC::receiveString(){
+	return recvBuffer;
 }

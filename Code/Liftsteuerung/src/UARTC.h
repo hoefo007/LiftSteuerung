@@ -22,7 +22,7 @@ class UARTDispatcher;
 
 class UARTC {
 private:
-	static std::list<std::string> recvBufferList;
+	static std::list<char*> recvBufferList;
 	static UARTDispatcher *observer;
 	static int bufferIndex;
 	static char recvBuffer[UART_REC_BUF_SIZE];
@@ -32,7 +32,7 @@ public:
 	UARTC(UARTDispatcher*);
 	virtual ~UARTC();
 	void sendString(std::string);
-	std::string receiveString();
+	char* receiveString();
 };
 
 #endif /* UART_H_ */

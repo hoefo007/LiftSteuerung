@@ -22,7 +22,8 @@ class UARTDispatcher: public Informer {
 private:
 	std::map<char, Observer*>charToObserver;
 	UARTC *uart;
-	void inform(std::string);
+	void inform();
+	void inform(char*);
 public:
 	UARTDispatcher();
 	virtual ~UARTDispatcher();
@@ -31,7 +32,7 @@ public:
 	void update();
 	void registrate(Observer*);
 	void unregistrate(Observer*);
-	void inform();
+	//void inform(char*);
 };
 
 #endif /* UARTDISPATCHER_H_ */

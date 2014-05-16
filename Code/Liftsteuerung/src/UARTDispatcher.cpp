@@ -27,14 +27,20 @@ std::string UARTDispatcher::receive(Observer *obsv){
 }
 
 void UARTDispatcher::update(){
-	std::string temp;
+	char* temp;
+	char* localBuffer = new char[UART_REC_BUF_SIZE];
 	temp = uart->receiveString();
-	inform(temp);
+	strcpy(localBuffer, temp);
+	inform(localBuffer);
+	delete localBuffer;
 }
 
-void UARTDispatcher::inform(std::string inp){
-	if(charToObserver.find(inp[0]) != charToObserver.end()){
-		charToObserver[inp[0]]->update();
+void UARTDispatcher::inform(char *input){
+	/*if(charToObserver.find(input*) != charToObserver.end()){
+		charToObserver[input*]->update();
+	}*/
+	if(){
+		(charToObserver[input*])*
 	}
 }
 
