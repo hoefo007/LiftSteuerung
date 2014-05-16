@@ -9,6 +9,7 @@
 
 #include "LiftSteuerung.h"
 #include "IOManager.h"
+#include "Cabin.h"
 
 int a;
 
@@ -19,12 +20,13 @@ int main(int argc, char *argv[])
 	uint8_t temp;
    /* Method data declaration      */
    /* Method code declaration      */
-	IOManager ioman;
-	UARTDispatcher uart;
-	uart.send("hallo");
+	//IOManager ioman;
+	//UARTDispatcher uart;
+	//uart.send("hallo");
+	Cabin cab;
 	while(1){
-		temp = ioman.getButtons();
-		ioman.setLeds(temp, 0xFF);
+		//temp = ioman.getButtons();
+		//ioman.setLeds(temp, 0xFF);
 		//uart.send("hallo");
 	}
    //system("PAUSE");

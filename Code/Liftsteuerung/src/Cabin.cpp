@@ -6,10 +6,21 @@
  */
 
 #include "Cabin.h"
+#include "FloorChooseButtons.h"
+#include "ProxyTransceiverChooseButtons.h"
+#include "FloorIndicator.h"
+#include "ProxyTransceiverFloorIndicator.h"
+#include "IOManager.h"
+#include "UARTDispatcher.h"
 
 Cabin::Cabin() {
 	// TODO Auto-generated constructor stub
-
+	IOMan = new IOManager();
+	UARTDisp = new UARTDispatcher;
+	ChooseBut = new FloorChooseButtons(IOMan);
+	ChooseButProxy = new ProxyTransceiverChooseButtons('b', UARTDisp, ChooseBut);
+	FloorInd = new FloorIndicator(IOMan);
+	FloorIndProxy = new ProxyTransceiverFloorIndicator('i', UARTDisp, FloorInd);
 }
 
 Cabin::~Cabin() {

@@ -31,7 +31,7 @@ private:
 public:
 	UARTC(UARTDispatcher*);
 	virtual ~UARTC();
-	void sendString(std::string);
+	void sendString(char*);
 	char* receiveString();
 };
 

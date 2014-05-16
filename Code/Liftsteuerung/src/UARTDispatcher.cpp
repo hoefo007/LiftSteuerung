@@ -18,34 +18,34 @@ UARTDispatcher::~UARTDispatcher() {
 	//delete uart;
 }
 
-void UARTDispatcher::send(std::string input){
+void UARTDispatcher::send(char *input){
 	uart->sendString(input);
 }
 
-std::string UARTDispatcher::receive(Observer *obsv){
-
+char* UARTDispatcher::receive(Observer *obsv){
+	return localBuffer;
 }
 
 void UARTDispatcher::update(){
 	char* temp;
-	char* localBuffer = new char[UART_REC_BUF_SIZE];
 	temp = uart->receiveString();
 	strcpy(localBuffer, temp);
 	inform(localBuffer);
-	delete localBuffer;
+	//delete localBuffer;
 }
 
 void UARTDispatcher::inform(char *input){
-	/*if(charToObserver.find(input*) != charToObserver.end()){
-		charToObserver[input*]->update();
-	}*/
-	if(){
-		(charToObserver[input*])*
+	if(charToObserver.find(input[0]) != charToObserver.end()){
+		charToObserver[input[0]]->update();
 	}
 }
 
 void UARTDispatcher::registrate(Observer *obsv){
 	observerList.push_back(obsv);
+}
+
+void UARTDispatcher::registrate(Observer *obsv, char ident){
+	charToObserver[ident] = obsv;
 }
 
 void UARTDispatcher::unregistrate(Observer *obsv){

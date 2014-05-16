@@ -12,12 +12,14 @@
 	class PositionSensors;
 	class FloorChooseButtons;
 	class FloorIndicator;
+	class IOManager;
 
 
 class ControlUnit {
 private:
 	int actualFloor;
 	// abstahierte Hardware
+	IOManager *IOMan;
 	Motor *myMotor;
 	CallButtons *myCallButtons;
 	PositionSensors *myPositionSensors;

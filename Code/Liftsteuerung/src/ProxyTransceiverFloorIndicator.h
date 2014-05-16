@@ -10,13 +10,18 @@
 
 #include "UARTObserver.h"
 
+class FloorIndicator;
+class UARTDispatcher;
+
 class ProxyTransceiverFloorIndicator : public Observer {
 private:
 	char identChar;
+	FloorIndicator *FloorInd;
+	UARTDispatcher *UARTDisp;
 public:
-	ProxyTransceiverFloorIndicator(char);
+	ProxyTransceiverFloorIndicator(char, UARTDispatcher*, FloorIndicator*);
 	virtual ~ProxyTransceiverFloorIndicator();
-	void update(std::string);
+	void update();
 };
 
 #endif /* PROXYTRANSCEIVERFLOORINDICATOR_H_ */

@@ -70,10 +70,8 @@ void UARTC::UARTRecInt(){
 	}
 }
 
-void UARTC::sendString(std::string sendStr){
-	char temp[sendStr.size()];
-	strcpy(temp, sendStr.c_str());
-	CARME_UART_SendString(CARME_UART0, temp);
+void UARTC::sendString(char* sendStr){
+	CARME_UART_SendString(CARME_UART0, sendStr);
 }
 
 char* UARTC::receiveString(){

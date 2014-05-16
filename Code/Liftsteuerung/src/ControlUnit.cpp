@@ -15,11 +15,12 @@
 ControlUnit::ControlUnit() {
 	// TODO Auto-generated constructor stub
 
+	IOMan = new IOManager();
 	myMotor=new Motor;
 	myCallButtons= new CallButtons;
 	myPositionSensors= new PositionSensors;
-	myFloorChooseButtons= new FloorChooseButtons;
-	myFloorIndicator= new FloorIndicator;
+	myFloorChooseButtons= new FloorChooseButtons(IOMan);
+	myFloorIndicator= new FloorIndicator(IOMan);
 }
 
 ControlUnit::~ControlUnit() {

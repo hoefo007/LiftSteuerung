@@ -15,8 +15,7 @@ class FloorIndicator {
 	IOManager *IOMan;
 	char actualFloor;
 public:
-	FloorIndicator();
-	//FloorIndicator(*IOManager);
+	FloorIndicator(IOManager*);
 	virtual ~FloorIndicator();
 	void setFloor(char);
 };

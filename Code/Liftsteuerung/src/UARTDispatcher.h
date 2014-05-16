@@ -22,15 +22,17 @@ class UARTDispatcher: public Informer {
 private:
 	std::map<char, Observer*>charToObserver;
 	UARTC *uart;
+	char localBuffer[10];
 	void inform();
 	void inform(char*);
 public:
 	UARTDispatcher();
 	virtual ~UARTDispatcher();
-	void send(std::string);
-	std::string receive(Observer*);
+	void send(char*);
+	char* receive(Observer*);
 	void update();
 	void registrate(Observer*);
+	void registrate(Observer*, char);
 	void unregistrate(Observer*);
 	//void inform(char*);
 };

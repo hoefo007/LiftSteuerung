@@ -6,9 +6,11 @@
  */
 
 #include "FloorIndicator.h"
+#include "IOManager.h"
 
-FloorIndicator::FloorIndicator() {
+FloorIndicator::FloorIndicator(IOManager *IOMan) {
 	// TODO Auto-generated constructor stub
+	this->IOMan = IOMan;
 }
 
 FloorIndicator::~FloorIndicator() {

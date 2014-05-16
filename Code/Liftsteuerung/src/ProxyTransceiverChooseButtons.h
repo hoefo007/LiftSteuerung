@@ -10,14 +10,20 @@
 
 #include "UARTObserver.h"
 
+class UARTDispatcher;
+class FloorChooseButtons;
+class Informer;
+
 class ProxyTransceiverChooseButtons : public Observer {
 private:
 	char identChar;
+	UARTDispatcher *UARTDisp;
+	FloorChooseButtons *ChooseBut;
 public:
-	ProxyTransceiverChooseButtons(char);
+	ProxyTransceiverChooseButtons(char, UARTDispatcher*, FloorChooseButtons*);
 	virtual ~ProxyTransceiverChooseButtons();
 
-	void update(std::string);
+	void update();
 };
 
 #endif /* PROXYTRANSCEIVERCHOOSEBUTTONS_H_ */

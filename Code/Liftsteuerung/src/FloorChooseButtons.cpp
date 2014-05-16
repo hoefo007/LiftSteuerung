@@ -6,13 +6,17 @@
  */
 
 #include "FloorChooseButtons.h"
+#include "IOManager.h"
 
-FloorChooseButtons::FloorChooseButtons() {
+FloorChooseButtons::FloorChooseButtons(IOManager *IOManIn) {
 	// TODO Auto-generated constructor stub
-
+	IOMan = IOManIn;
 }
 
 FloorChooseButtons::~FloorChooseButtons() {
 	// TODO Auto-generated destructor stub
 }
 
+uint8_t FloorChooseButtons::getChosenFloor(){
+	return IOMan->getSwitches();
+}
