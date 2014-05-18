@@ -10,31 +10,39 @@
 
 #include "IOObserver.h"
 #include "Informer.h"
+#include "carme.h"
+#include "carme_io1.h"
 #include "carme_io2.h"
 #include <stdint.h>
 #include <list>
 #include <map>
 
+typedef enum {SWITCH, BUTTON, PORTA} IOType;
+
 class IOManager : public Informer {
 private:
-	static void ButtonInt();
-	static void SwitchInt();
-	static void TimerInt();
-	std::list<Observer*> observerList;
-	std::map<Observer*, uint8_t>switchMap;
-	std::map<Observer*, uint8_t>buttonMap;
+	uint8_t previousButtons;
+	uint8_t previousSwitches;
+	uint8_t previousPortA;
+	uint8_t changedButtons;
+	uint8_t changedSwitches;
+	uint8_t changedPortA;
+	Observer *buttonObserver;
+	Observer *switchObserver;
+	Observer *portAObserver;
 public:
 	IOManager();
 	virtual ~IOManager();
 	uint8_t getButtons();
 	uint8_t getSwitches();
+	uint8_t getPortA();
 	void setLeds(uint8_t, uint8_t);
 	void registrate(Observer*);
-	void registrate(Observer*, uint8_t, uint8_t);
+	void registrate(Observer*, IOType);
 	void unregistrate(Observer*);
 	uint16_t getADVal(CARME_IO2_ADC_CHANNEL);
 	void inform();
-	void inform(uint8_t, uint8_t);
+	void periodicFunction();
 };
 
 #endif /* IOMANAGER_H_ */

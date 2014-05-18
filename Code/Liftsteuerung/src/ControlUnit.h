@@ -9,6 +9,13 @@
 #define CONTROLUNIT_H_
 
 #include <stdint.h>
+
+#include "Observer.h"
+#include "Doors.h"
+
+typedef enum {IDLE, CLOSEDOOR, DRIVEUP, DRIVEDOWN, OPENDOOR} UnitState;
+typedef enum {CUP, CDOWN} CabinDir;
+
 	class Motor;
 	class CallButtons;
 	class PositionSensors;
@@ -18,27 +25,35 @@
 	class ProxyChooseButtons;
 	class ProxyFloorIndicator;
 	class UARTDispatcher;
+	class ProxyDoors;
 
 
-class ControlUnit {
+class ControlUnit : public Observer {
 private:
-	uint8_t actualFloor;
-	uint8_t nextFloor;
-	// abstahierte Hardware
+	uint8_t position;
+	CabinDir direction;
+	uint8_t requestedFloors;
+	DoorState doors;
+	UnitState state;
+	bool driving;
+	// abstrahierte Hardware
 	IOManager *IOMan;
 	Motor *myMotor;
 	CallButtons *myCallButtons;
 	PositionSensors *myPositionSensors;
-	FloorChooseButtons *myFloorChooseButtons;
+	FloorChooseButtons *ExternFloorChooseButtons;
 	FloorIndicator *myFloorIndicator;
-	ProxyChooseButtons *ChooseButProxy;
+	ProxyChooseButtons *CabinFloorChooseButtons;
 	ProxyFloorIndicator *FloorIndProxy;
 	UARTDispatcher *UARTDisp;
+	ProxyDoors *ProxyDoor;
 public:
 	ControlUnit();
 	virtual ~ControlUnit();
 	void updateSensedPosition();
 	void updateCall();
+	void periodicFunction();
+	void update();
 };
 
 #endif /* CONTROLUNIT_H_ */

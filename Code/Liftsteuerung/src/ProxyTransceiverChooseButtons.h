@@ -13,14 +13,16 @@
 class UARTDispatcher;
 class FloorChooseButtons;
 class Informer;
+class IOManager;
 
 class ProxyTransceiverChooseButtons : public Observer {
 private:
 	char identChar;
 	UARTDispatcher *UARTDisp;
 	FloorChooseButtons *ChooseBut;
+	IOManager *IOMan;
 public:
-	ProxyTransceiverChooseButtons(char, UARTDispatcher*, FloorChooseButtons*);
+	ProxyTransceiverChooseButtons(char, UARTDispatcher*, FloorChooseButtons*, IOManager*);
 	virtual ~ProxyTransceiverChooseButtons();
 
 	void update();

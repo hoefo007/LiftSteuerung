@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 	//uart.send("hallo");
 	Cabin cab;
 	while(1){
+		cab.periodicFunction();
 		//temp = ioman.getButtons();
 		//ioman.setLeds(temp, 0xFF);
 		//uart.send("hallo");

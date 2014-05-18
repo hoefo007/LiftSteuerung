@@ -33,6 +33,7 @@ public:
 	void registrate(Observer*);
 	void registrate(Observer*, char);
 	void unregistrate(Observer*);
+	void clearBuffer();
 	//void inform(char*);
 };
 

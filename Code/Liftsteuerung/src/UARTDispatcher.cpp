@@ -56,3 +56,7 @@ void UARTDispatcher::unregistrate(Observer *obsv){
 void UARTDispatcher::inform(){
 
 }
+
+void UARTDispatcher::clearBuffer(){
+	localBuffer[0] = 0;
+}

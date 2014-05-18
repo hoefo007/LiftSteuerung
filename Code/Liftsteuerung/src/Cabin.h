@@ -14,6 +14,8 @@ class FloorIndicator;
 class FloorChooseButtons;
 class UARTDispatcher;
 class IOManager;
+class Doors;
+class ProxyTransceiverDoors;
 
 class Cabin {
 private:
@@ -24,10 +26,13 @@ private:
 	FloorChooseButtons *ChooseBut;
 	UARTDispatcher *UARTDisp;
 	IOManager *IOMan;
+	ProxyTransceiverDoors *DoorsProxy;
+	Doors * doors;
 public:
 	Cabin();
 	virtual ~Cabin();
 	void setActualFloor(char);
+	void periodicFunction();
 };
 
 #endif /* CABIN_H_ */

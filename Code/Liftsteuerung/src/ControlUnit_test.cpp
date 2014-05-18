@@ -25,8 +25,9 @@ int main(int argc, char *argv[])
 	//uart.send("hallo");
 	ControlUnit cUnit;
 	while(1){
-		cUnit.updateCall();
+		//cUnit.updateCall();
 		cUnit.updateSensedPosition();
+		cUnit.periodicFunction();
 		//temp = ioman.getButtons();
 		//ioman.setLeds(temp, 0xFF);
 		//uart.send("hallo");

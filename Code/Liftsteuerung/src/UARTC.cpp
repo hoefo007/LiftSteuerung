@@ -16,7 +16,7 @@ std::list<char*> UARTC::recvBufferList;
 UARTDispatcher *UARTC::observer;
 int UARTC::bufferIndex;
 char UARTC::recvBuffer[UART_REC_BUF_SIZE];
-
+volatile bool UARTC::received;
 
 
 
@@ -50,6 +50,7 @@ UARTC::UARTC(UARTDispatcher *obsv) {
 
     registerIRQ(USART, UARTRecInt);
 
+    received = false;
     bufferIndex = 0;
 }
 
@@ -65,6 +66,7 @@ void UARTC::UARTRecInt(){
 		bufferIndex++;
 		if(temp == 0){
 			bufferIndex = 0;
+			received = true;
 			observer->update();
 		}
 	}

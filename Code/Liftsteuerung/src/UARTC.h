@@ -27,7 +27,7 @@ private:
 	static int bufferIndex;
 	static char recvBuffer[UART_REC_BUF_SIZE];
 	static void UARTRecInt();
-	//void UARTSendInt();
+	static volatile bool received;
 public:
 	UARTC(UARTDispatcher*);
 	virtual ~UARTC();

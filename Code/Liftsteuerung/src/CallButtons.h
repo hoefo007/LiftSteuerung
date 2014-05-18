@@ -8,9 +8,11 @@
 #ifndef CALLBUTTONS_H_
 #define CALLBUTTONS_H_
 
+class IOManager;
+
 class CallButtons {
 private:
-
+	IOManager *IOMan;
 public:
 	CallButtons();
 	virtual ~CallButtons();

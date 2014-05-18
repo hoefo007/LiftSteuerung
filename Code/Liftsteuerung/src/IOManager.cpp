@@ -6,17 +6,21 @@
  */
 
 #include "IOManager.h"
-#include "carme.h"
-#include "carme_io1.h"
-#include "carme_io2.h"
-#include "stm32f4xx_tim.h"
-#include "intRemap.h"
 
 IOManager::IOManager() {
 	// TODO Auto-generated constructor stub
 	CARME_IO1_Init();
 	CARME_IO2_Init();
 
+	//CARME_IO1_PIO_Control(CARME_IO1_PORT_A_IN);
+
+	buttonObserver = 0;
+	switchObserver = 0;
+
+	previousButtons = 0;
+	previousSwitches = 0;
+	changedButtons = 0;
+	changedSwitches = 0;
 	//TODO Timer init
 	//registerIRQ(TIM, TimerInt);
 
@@ -24,19 +28,19 @@ IOManager::IOManager() {
 
 IOManager::~IOManager() {
 	// TODO Auto-generated destructor stub
-	unregisterIRQ(TIM);
+	//unregisterIRQ(TIM);
 }
 
 uint8_t IOManager::getSwitches(){
-	uint8_t temp;
-	CARME_IO1_SWITCH_Get(&temp);
-	return temp;
+	return changedSwitches;
 }
 
 uint8_t IOManager::getButtons(){
-	uint8_t temp;
-	CARME_IO1_BUTTON_Get(&temp);
-	return temp;
+	return changedButtons;
+}
+
+uint8_t IOManager::getPortA(){
+	return changedPortA;
 }
 
 void IOManager::setLeds(uint8_t value, uint8_t mask){
@@ -49,10 +53,16 @@ uint16_t IOManager::getADVal(CARME_IO2_ADC_CHANNEL channel){
 	return temp;
 }
 
-void IOManager::registrate(Observer *obsv, uint8_t switches, uint8_t buttons){
-	observerList.push_back(obsv);
-	switchMap[obsv] = switches;
-	buttonMap[obsv] = buttons;
+void IOManager::registrate(Observer *obsv, IOType type){
+	switch(type){
+		case SWITCH:	switchObserver = obsv;
+		break;
+		case BUTTON:	buttonObserver = obsv;
+		break;
+		case PORTA:		portAObserver = obsv;
+		break;
+		default:		break;
+	}
 }
 
 void IOManager::registrate(Observer *obsv){
@@ -60,41 +70,45 @@ void IOManager::registrate(Observer *obsv){
 }
 
 void IOManager::unregistrate(Observer *obsv){
-	observerList.remove(obsv);
-}
-
-void IOManager::inform(uint8_t switches, uint8_t buttons){
-	std::list<Observer*>::iterator ptr;
-	ptr = observerList.begin();
-	while(ptr != observerList.end()){
-		/*if(((ptr.switches & switches)|(ptr.buttons & buttons)) != 0){
-			ptr.update();
-		}*/
-		if(((switchMap[*ptr] & switches) | (buttonMap[*ptr] & buttons)) != 0){
-			(*ptr)->update();
-		}
-		ptr++;
+	if(switchObserver == obsv){
+		switchObserver = 0;
 	}
-	return;
+	else if(buttonObserver == obsv){
+		buttonObserver = 0;
+	}
 }
 
 void IOManager::inform(){
-	std::list<Observer*>::iterator ptr;
-	ptr = observerList.begin();
-	while(ptr != observerList.end()){
-		(*ptr)->update();
-		ptr++;
+	if((switchObserver != 0) && (changedSwitches != 0)){
+		switchObserver->update();
+	}
+	if((buttonObserver != 0) && (changedButtons != 0)){
+		buttonObserver->update();
+	}
+	if((portAObserver != 0) && (changedPortA != 0)){
+		portAObserver->update();
 	}
 }
 
-void TimerInt(){
-
-}
-
-void IOManager::ButtonInt(){
-
-}
-
-void IOManager::SwitchInt(){
-
+void IOManager::periodicFunction(){
+	uint8_t temp;
+	uint16_t temp16;
+	CARME_IO1_SWITCH_Get(&temp);
+	changedSwitches = previousSwitches ^ temp;
+	changedSwitches &= temp;
+	previousSwitches = temp;
+	CARME_IO1_BUTTON_Get(&temp);
+	changedButtons = previousButtons ^ temp;
+	changedButtons &= temp;
+	previousButtons = temp;
+	//CARME_IO1_PIO_Read(CARME_IO1_PORT_A, &temp);
+	temp16 = getADVal(CARME_IO2_ADC_PORT0);
+	temp16 = ((temp16 & 0x380) >> 7) & 0x07;
+	temp16 = 1 << temp16;
+	changedPortA = previousPortA ^ temp16;
+	changedPortA &= temp16;
+	previousPortA = temp16;
+	if((changedSwitches != 0) || (changedButtons != 0) || (changedPortA != 0)){
+		inform();
+	}
 }

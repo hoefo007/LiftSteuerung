@@ -8,13 +8,15 @@
 #ifndef MOTOR_H_
 #define MOTOR_H_
 
+typedef enum {UP, DOWN, STOP} MotorDir;
+
 class Motor {
 private:
-	char motorState;
+	MotorDir motorState;
 public:
 	Motor();
 	virtual ~Motor();
-	void startMotor(char);
+	void startMotor(MotorDir);
 	void stopMotor();
 };
 

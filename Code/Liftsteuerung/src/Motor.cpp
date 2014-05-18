@@ -9,15 +9,17 @@
 
 Motor::Motor() {
 	// TODO Auto-generated constructor stub
-
+	motorState = STOP;
 }
 
 Motor::~Motor() {
 	// TODO Auto-generated destructor stub
 }
 
-void Motor::startMotor(char char1) {
+void Motor::startMotor(MotorDir direction) {
+	motorState = direction;
 }
 
 void Motor::stopMotor() {
+	motorState = STOP;
 }
