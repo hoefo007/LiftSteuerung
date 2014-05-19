@@ -16,6 +16,7 @@ IOManager::IOManager() {
 
 	buttonObserver = 0;
 	switchObserver = 0;
+	portAObserver = 0;
 
 	previousButtons = 0;
 	previousSwitches = 0;
@@ -75,6 +76,9 @@ void IOManager::unregistrate(Observer *obsv){
 	}
 	else if(buttonObserver == obsv){
 		buttonObserver = 0;
+	}
+	else if(portAObserver == obsv){
+		portAObserver = 0;
 	}
 }
 

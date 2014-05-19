@@ -59,6 +59,7 @@ void ControlUnit::update(){
 	position = cnt;
 
 	IOMan->setLeds(sensedPosition, 0xFF);
+	FloorIndProxy->setFloor(sensedPosition);
 
 	requestedFloors |= CabinFloorChooseButtons->getChosenFloor();
 	requestedFloors |= ExternFloorChooseButtons->getChosenFloor();

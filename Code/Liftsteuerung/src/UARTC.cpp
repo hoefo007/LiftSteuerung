@@ -74,6 +74,7 @@ void UARTC::UARTRecInt(){
 
 void UARTC::sendString(char* sendStr){
 	CARME_UART_SendString(CARME_UART0, sendStr);
+	CARME_UART_SendChar(CARME_UART0, '\0');
 }
 
 char* UARTC::receiveString(){
