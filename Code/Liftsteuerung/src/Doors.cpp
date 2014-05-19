@@ -9,9 +9,8 @@
 #include "IOManager.h"
 #include "UARTDispatcher.h"
 
-Doors::Doors(IOManager *IOMan, UARTDispatcher *UARTDisp) {
+Doors::Doors(IOManager *IOMan) {
 	this->IOMan = IOMan;
-	this->UARTDisp = UARTDisp;
 
 	this->IOMan->registrate(this, BUTTON);
 
@@ -24,7 +23,9 @@ Doors::~Doors() {
 }
 
 void Doors::inform(){
-
+	if(Obsv != 0){
+		Obsv->update();
+	}
 }
 
 void Doors::registrate(Observer *Obsv){
@@ -50,4 +51,12 @@ void Doors::update(){
 
 DoorState Doors::getDoorState(){
 	return doorState;
+}
+
+void Doors::open(){
+
+}
+
+void Doors::close(){
+
 }

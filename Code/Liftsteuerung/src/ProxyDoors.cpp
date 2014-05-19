@@ -35,10 +35,14 @@ void ProxyDoors::inform(){
 
 void ProxyDoors::update(){
 	char *temp;
-	char sendMsg[10];
 	temp = UARTDisp->receive(this);
 	if((temp[0] == identChar) && (temp[1] = 'i')){
-		doorState = static_cast<DoorState>(sendMsg[2]);
+		if(temp[2] == '1'){
+			doorState = OPEN;
+		}
+		else{
+			doorState = CLOSED;
+		}
 		UARTDisp->clearBuffer();
 		inform();
 	}

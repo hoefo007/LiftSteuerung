@@ -17,20 +17,11 @@ int a;
 
 int main(int argc, char *argv[])
 {
-	uint8_t temp;
    /* Method data declaration      */
    /* Method code declaration      */
-	//IOManager ioman;
-	//UARTDispatcher uart;
-	//uart.send("hallo");
 	ControlUnit cUnit;
 	while(1){
-		//cUnit.updateCall();
-		cUnit.updateSensedPosition();
 		cUnit.periodicFunction();
-		//temp = ioman.getButtons();
-		//ioman.setLeds(temp, 0xFF);
-		//uart.send("hallo");
 	}
    //system("PAUSE");
    return 0;

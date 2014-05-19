@@ -23,7 +23,7 @@ Cabin::Cabin() {
 	ChooseButProxy = new ProxyTransceiverChooseButtons('b', UARTDisp, ChooseBut, IOMan);
 	FloorInd = new FloorIndicator(IOMan);
 	FloorIndProxy = new ProxyTransceiverFloorIndicator('i', UARTDisp, FloorInd);
-	doors = new Doors(IOMan, UARTDisp);
+	doors = new Doors(IOMan);
 	DoorsProxy = new ProxyTransceiverDoors('d', doors, UARTDisp);
 }
 

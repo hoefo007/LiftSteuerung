@@ -17,7 +17,6 @@ typedef enum {IDLE, CLOSEDOOR, DRIVEUP, DRIVEDOWN, OPENDOOR} UnitState;
 typedef enum {CUP, CDOWN} CabinDir;
 
 	class Motor;
-	class CallButtons;
 	class PositionSensors;
 	class FloorChooseButtons;
 	class FloorIndicator;
@@ -39,7 +38,6 @@ private:
 	// abstrahierte Hardware
 	IOManager *IOMan;
 	Motor *myMotor;
-	CallButtons *myCallButtons;
 	PositionSensors *myPositionSensors;
 	FloorChooseButtons *ExternFloorChooseButtons;
 	FloorIndicator *myFloorIndicator;
@@ -50,8 +48,6 @@ private:
 public:
 	ControlUnit();
 	virtual ~ControlUnit();
-	void updateSensedPosition();
-	void updateCall();
 	void periodicFunction();
 	void update();
 };

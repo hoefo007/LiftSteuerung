@@ -12,24 +12,24 @@
 #include "Informer.h"
 
 class IOManager;
-class UARTDispatcher;
 
 typedef enum {OPEN, CLOSED} DoorState;
 
 class Doors: public Informer, public Observer {
 private:
 	IOManager *IOMan;
-	UARTDispatcher *UARTDisp;
 	Observer *Obsv;
 	void inform();
 	DoorState doorState;
 public:
-	Doors(IOManager*, UARTDispatcher*);
+	Doors(IOManager*);
 	virtual ~Doors();
 	void registrate(Observer*);
 	void unregistrate(Observer*);
 	void update();
 	DoorState getDoorState();
+	void close();
+	void open();
 };
 
 #endif /* DOORS_H_ */

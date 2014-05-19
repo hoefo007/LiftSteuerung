@@ -35,7 +35,9 @@ void PositionSensors::unregistrate(Observer *obsv){
 }
 
 void PositionSensors::inform(){
-	Obsv->update();
+	if(Obsv != 0){
+		Obsv->update();
+	}
 }
 
 void PositionSensors::update(){

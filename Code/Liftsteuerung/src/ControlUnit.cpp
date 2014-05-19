@@ -6,7 +6,6 @@
  */
 #include "ControlUnit.h"
 #include "Motor.h"
-#include "CallButtons.h"
 #include "PositionSensors.h"
 #include "FloorIndicator.h"
 #include "FloorChooseButtons.h"
@@ -21,7 +20,6 @@ ControlUnit::ControlUnit() {
 
 	IOMan = new IOManager();
 	myMotor=new Motor;
-	myCallButtons= new CallButtons;
 	myPositionSensors= new PositionSensors(IOMan);
 	ExternFloorChooseButtons= new FloorChooseButtons(IOMan);
 	myFloorIndicator= new FloorIndicator(IOMan);
@@ -47,60 +45,86 @@ ControlUnit::~ControlUnit() {
 	// TODO Auto-generated destructor stub
 }
 
-void ControlUnit::updateSensedPosition() {
-	//actualFloor = myPositionSensors->getSensedPosition();
-	//myFloorIndicator->setFloor(actualFloor);
-	//FloorIndProxy->setFloor(actualFloor);
-}
-
-void ControlUnit::updateCall() {
-	//requestedFloors |= ChooseButProxy->getChosenFloor();
-}
-
 void ControlUnit::periodicFunction(){
 	IOMan->periodicFunction();
 }
 
 void ControlUnit::update(){
 	uint8_t sensedPosition;
-	uint8_t cnt = 1;
+	uint8_t cnt = 0;
 	sensedPosition = myPositionSensors->getSensedPosition();
 	while((sensedPosition & (1 << cnt)) == 0){
 		cnt++;
 	}
 	position = cnt;
 
+	IOMan->setLeds(sensedPosition, 0xFF);
+
 	requestedFloors |= CabinFloorChooseButtons->getChosenFloor();
 	requestedFloors |= ExternFloorChooseButtons->getChosenFloor();
+	//requestedFloors &= ~(sensedPosition);
 	switch(state){
-	case IDLE:		if(requestedFloors & (~(1<<position))){
+	case IDLE:		if((requestedFloors & (~(sensedPosition))) && (ProxyDoor->getDoorState() == OPEN)){
 						state = CLOSEDOOR;
 						ProxyDoor->closeDoor();
 					}
-					break;
-	case CLOSEDOOR:	if(ProxyDoor->getDoorState() == CLOSED){
-						if((direction == CUP) && (requestedFloors & (0xFF << position))){
+					else if((requestedFloors & (~(sensedPosition))) && (ProxyDoor->getDoorState() == CLOSED)){
+						if((direction == CUP) && (requestedFloors & (0xFF << (position + 1)))){
 							myMotor->startMotor(UP);
 							state = DRIVEUP;
+						}
+						else if((direction == CUP) && ((requestedFloors & (0xFF << (position + 1))) == 0)){
+							myMotor->startMotor(DOWN);
+							state = DRIVEDOWN;
+							direction = CDOWN;
 						}
 						else if((direction == CDOWN) && (requestedFloors & (~(0xFF << position)))){
 							myMotor->startMotor(DOWN);
 							state = DRIVEDOWN;
 						}
+						else if((direction == CDOWN) && ((requestedFloors & (~(0xFF << position))) == 0)){
+							myMotor->startMotor(UP);
+							state = DRIVEUP;
+							direction = CUP;
+						}
 					}
 					break;
-	case DRIVEUP:	if((sensedPosition & (1 << position))){
-						state = OPENDOOR;
-						ProxyDoor->openDoor();
+	case CLOSEDOOR:	if(ProxyDoor->getDoorState() == CLOSED){
+						if((direction == CUP) && (requestedFloors & (0xFF << (position + 1)))){
+							myMotor->startMotor(UP);
+							state = DRIVEUP;
+						}
+						else if((direction == CUP) && ((requestedFloors & (0xFF << (position + 1))) == 0)){
+							myMotor->startMotor(DOWN);
+							state = DRIVEDOWN;
+							direction = CDOWN;
+						}
+						else if((direction == CDOWN) && (requestedFloors & (~(0xFF << position)))){
+							myMotor->startMotor(DOWN);
+							state = DRIVEDOWN;
+						}
+						else if((direction == CDOWN) && ((requestedFloors & (~(0xFF << position))) == 0)){
+							myMotor->startMotor(UP);
+							state = DRIVEUP;
+							direction = CUP;
+						}
 					}
 					break;
-	case DRIVEDOWN:	if((sensedPosition & (1 << position))){
+	case DRIVEUP:	if((sensedPosition & requestedFloors)){
 						state = OPENDOOR;
 						ProxyDoor->openDoor();
+						myMotor->stopMotor();
+					}
+					break;
+	case DRIVEDOWN:	if((sensedPosition & requestedFloors)){
+						state = OPENDOOR;
+						ProxyDoor->openDoor();
+						myMotor->stopMotor();
 					}
 					break;
 	case OPENDOOR:	if(ProxyDoor->getDoorState() == OPEN){
 						state = IDLE;
+						requestedFloors &= ~(sensedPosition);
 					}
 					break;
 	default:		state = IDLE;
