@@ -12,6 +12,7 @@
 #include "uart.h"
 #include "intRemap.h"
 
+//Static objects for Interrupt
 std::list<char*> UARTC::recvBufferList;
 UARTDispatcher *UARTC::observer;
 int UARTC::bufferIndex;
@@ -19,7 +20,10 @@ char UARTC::recvBuffer[UART_REC_BUF_SIZE];
 volatile bool UARTC::received;
 
 
-
+/**
+ * @brief Constructor of UARTC. Inizializes the UART and the variables.
+ * @param obsv: corresponding UARTDispatcher
+ */
 UARTC::UARTC(UARTDispatcher *obsv) {
 	// TODO Auto-generated constructor stub
     NVIC_InitTypeDef NVICInitStructure;
@@ -54,29 +58,43 @@ UARTC::UARTC(UARTDispatcher *obsv) {
     bufferIndex = 0;
 }
 
+/**
+ * @brief Destructor of UARTC.
+ */
 UARTC::~UARTC() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * @brief UART receive interrupt. Saves the received chars and calls dispatcher if full string has been received.
+ */
 void UARTC::UARTRecInt(){
 	uint16_t temp;
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
-		temp = USART_ReceiveData(USART1);
-		recvBuffer[bufferIndex] = static_cast<char>(temp);
+		temp = USART_ReceiveData(USART1);				//get received char
+		recvBuffer[bufferIndex] = static_cast<char>(temp);//save it in buffer
 		bufferIndex++;
-		if(temp == 0){
-			bufferIndex = 0;
+		if(temp == 0){									//If string termination
+			bufferIndex = 0;							//update UARTDispatcher
 			received = true;
 			observer->update();
 		}
 	}
 }
 
+/**
+ * @brief Sends a null terminated string.
+ * @param sendStr: string to send
+ */
 void UARTC::sendString(char* sendStr){
 	CARME_UART_SendString(CARME_UART0, sendStr);
 	CARME_UART_SendChar(CARME_UART0, '\0');
 }
 
+/**
+ * @brief Returns the received string.
+ * @return received string
+ */
 char* UARTC::receiveString(){
 	return recvBuffer;
 }

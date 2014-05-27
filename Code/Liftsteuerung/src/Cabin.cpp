@@ -15,6 +15,11 @@
 #include "Doors.h"
 #include "ProxyTransceiverDoors.h"
 
+/**
+ * @brief Constructor of Cabin. Generates the elements of the Cabin
+ * @param void
+ * @return
+ */
 Cabin::Cabin() {
 	// TODO Auto-generated constructor stub
 	IOMan = new IOManager();
@@ -27,6 +32,11 @@ Cabin::Cabin() {
 	DoorsProxy = new ProxyTransceiverDoors('d', doors, UARTDisp);
 }
 
+/**
+ * @brief Destructor of Cabin. Deletes the elements of Cabin.
+ * @param void
+ * @return
+ */
 Cabin::~Cabin() {
 	// TODO Auto-generated destructor stub
 }
@@ -34,6 +44,11 @@ Cabin::~Cabin() {
 void Cabin::setActualFloor(char char1) {
 }
 
+/**
+ * @brief Periodic function of the Cabin, used for polling
+ * @param void
+ * @return
+ */
 void Cabin::periodicFunction(){
 	IOMan->periodicFunction();
 }

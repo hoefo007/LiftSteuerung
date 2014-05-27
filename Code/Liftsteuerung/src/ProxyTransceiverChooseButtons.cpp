@@ -10,6 +10,13 @@
 #include "FloorChooseButtons.h"
 #include "IOManager.h"
 
+/**
+ * @brief Constructor of ProxyTransceiverChooseButtons. Initializes the variables.
+ * @param iChar: ident char for UART dispatcher
+ * @param UARTDispa: corresponding UART dispatecher
+ * @param ChooseBut: real choosebuttons
+ * @param IOMan: corresponding IOManager
+ */
 ProxyTransceiverChooseButtons::ProxyTransceiverChooseButtons(char iChar, UARTDispatcher *UARTDispa, FloorChooseButtons *ChooseBut, IOManager *IOMan) {
 	// TODO Auto-generated constructor stub
 	identChar = iChar;
@@ -21,10 +28,16 @@ ProxyTransceiverChooseButtons::ProxyTransceiverChooseButtons(char iChar, UARTDis
 	this->ChooseBut->registrate(this);
 }
 
+/**
+ * @brief Destructor of ProxyTransceiverChooseButtons.
+ */
 ProxyTransceiverChooseButtons::~ProxyTransceiverChooseButtons() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * @brief Inherited function from Observer. Called if an update is required.
+ */
 void ProxyTransceiverChooseButtons::update(){
 	char *temp;
 	uint8_t tempSwitches;

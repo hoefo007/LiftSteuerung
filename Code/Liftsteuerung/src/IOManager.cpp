@@ -7,6 +7,9 @@
 
 #include "IOManager.h"
 
+/**
+ * @brief Constructor of IOManager. Initializes the variables.
+ */
 IOManager::IOManager() {
 	// TODO Auto-generated constructor stub
 	CARME_IO1_Init();
@@ -27,33 +30,62 @@ IOManager::IOManager() {
 
 }
 
+/**
+ * @brief Destructor of IOManager.
+ */
 IOManager::~IOManager() {
 	// TODO Auto-generated destructor stub
 	//unregisterIRQ(TIM);
 }
 
+/**
+ * @brief Get the changed switches
+ * @return changed switches
+ */
 uint8_t IOManager::getSwitches(){
 	return changedSwitches;
 }
 
+/**
+ * @brief Get the changed buttons
+ * @return changed buttons
+ */
 uint8_t IOManager::getButtons(){
 	return changedButtons;
 }
 
+/**
+ * @brief Get the changed pins on PORTA
+ * @return changed PORTA
+ */
 uint8_t IOManager::getPortA(){
 	return changedPortA;
 }
-
+ /**
+  * @brief Sets the leds
+  * @param value: value to write to leds
+  * @param mask: write mask for leds
+  */
 void IOManager::setLeds(uint8_t value, uint8_t mask){
 	CARME_IO1_LED_Set(value, mask);
 }
 
+/**
+ * @brief Gets the value of the AD-converter
+ * @param channel: which channel to convert
+ * @return converted value
+ */
 uint16_t IOManager::getADVal(CARME_IO2_ADC_CHANNEL channel){
 	uint16_t temp;
 	CARME_IO2_ADC_Get(channel, &temp);
 	return temp;
 }
 
+/**
+ * @brief Inherited function from Informer. Registers an observer.
+ * @param obsv: observer to register
+ * @param type: which input changes shall be reported to the observer
+ */
 void IOManager::registrate(Observer *obsv, IOType type){
 	switch(type){
 		case SWITCH:	switchObserver = obsv;
@@ -66,10 +98,18 @@ void IOManager::registrate(Observer *obsv, IOType type){
 	}
 }
 
+/**
+ * @brief Inherited function from Informer. Registers an observer.
+ * @param obsv
+ */
 void IOManager::registrate(Observer *obsv){
 	observerList.push_back(obsv);
 }
 
+/**
+ * @brief Inherited function from Informer. Unregisters an observer.
+ * @param obsv: wich observer shall be unregistred
+ */
 void IOManager::unregistrate(Observer *obsv){
 	if(switchObserver == obsv){
 		switchObserver = 0;
@@ -82,6 +122,9 @@ void IOManager::unregistrate(Observer *obsv){
 	}
 }
 
+/**
+ * @brief Inherited function from Informer. Calls the corresponding observers.
+ */
 void IOManager::inform(){
 	if((switchObserver != 0) && (changedSwitches != 0)){
 		switchObserver->update();
@@ -94,6 +137,9 @@ void IOManager::inform(){
 	}
 }
 
+/**
+ * @brief Periodic function, polls the states of buttons, switches, PORTA and the value of the potentiometer.
+ */
 void IOManager::periodicFunction(){
 	uint8_t temp;
 	uint16_t temp16;

@@ -9,6 +9,11 @@
 #include "IOManager.h"
 #include "UARTDispatcher.h"
 
+/**
+ * @brief Constructor for doors. Initializes the variables.
+ * @param IOMan
+ * @return
+ */
 Doors::Doors(IOManager *IOMan) {
 	this->IOMan = IOMan;
 
@@ -18,24 +23,44 @@ Doors::Doors(IOManager *IOMan) {
 	doorState = OPEN;
 }
 
+/**
+ * @brief Destructor of Doors.
+ * @param void
+ * @return
+ */
 Doors::~Doors() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * @brief Inherited function from Informer. Updates the Observer.
+ * @param void
+ */
 void Doors::inform(){
 	if(Obsv != 0){
 		Obsv->update();
 	}
 }
 
+/**
+ * @brief Inherited function from Informer. Registrates the Observer.
+ * @param Obsv
+ */
 void Doors::registrate(Observer *Obsv){
 	this->Obsv = Obsv;
 }
 
+/**
+ * @brief Inherited function from Informer. Unregistrates the Observer.
+ * @param Obsv
+ */
 void Doors::unregistrate(Observer *Obsv){
 	this->Obsv = 0;
 }
 
+/**
+ * @brief Inherited function from Observer. Called when hardware changed.
+ */
 void Doors::update(){
 	uint8_t temp;
 	temp = IOMan->getButtons();
@@ -49,14 +74,24 @@ void Doors::update(){
 	}
 }
 
+/**
+ * @brief Returns the state of the door (closed or open)
+ * @return
+ */
 DoorState Doors::getDoorState(){
 	return doorState;
 }
 
+/**
+ * @brief Opens the door. Left blank as no output is required in model.
+ */
 void Doors::open(){
 
 }
 
+/**
+ * @brief Closes the door. Left blank as no output is required in model.
+ */
 void Doors::close(){
 
 }

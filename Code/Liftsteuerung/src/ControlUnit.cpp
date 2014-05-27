@@ -14,7 +14,11 @@
 #include "ProxyFloorIndicator.h"
 #include "ProxyDoors.h"
 
-
+/**
+ * @brief Constructor of ControlUnit. Creates the elements of ControlUnit and initializes the variables.
+ * @param void
+ * @return
+ */
 ControlUnit::ControlUnit() {
 	// TODO Auto-generated constructor stub
 
@@ -41,90 +45,105 @@ ControlUnit::ControlUnit() {
 
 }
 
+/**
+ * @brief Destructor of ControlUnit. Deletes the elements of ControlUnit.
+ * @param void
+ * @return
+ */
 ControlUnit::~ControlUnit() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * @brief Periodic function of the ControlUnit, used for polling
+ * @param void
+ * @return
+ */
 void ControlUnit::periodicFunction(){
 	IOMan->periodicFunction();
 }
 
+/**
+ * @brief Inherited update function. Called if changes in hardware are detected. Gets the new values and calculates the desired action.
+ * @param void
+ * @return
+ */
 void ControlUnit::update(){
 	uint8_t sensedPosition;
 	uint8_t cnt = 0;
-	sensedPosition = myPositionSensors->getSensedPosition();
-	while((sensedPosition & (1 << cnt)) == 0){
+	sensedPosition = myPositionSensors->getSensedPosition();	//Get position in one-hot
+	while((sensedPosition & (1 << cnt)) == 0){					//Convert to regular int
 		cnt++;
 	}
 	position = cnt;
 
-	IOMan->setLeds(sensedPosition, 0xFF);
+	IOMan->setLeds(sensedPosition, 0xFF);			//Display actual position
 	FloorIndProxy->setFloor(sensedPosition);
 
-	requestedFloors |= CabinFloorChooseButtons->getChosenFloor();
+	requestedFloors |= CabinFloorChooseButtons->getChosenFloor();	//Get requested Floors
 	requestedFloors |= ExternFloorChooseButtons->getChosenFloor();
 	//requestedFloors &= ~(sensedPosition);
 	switch(state){
-	case IDLE:		if((requestedFloors & (~(sensedPosition))) && (ProxyDoor->getDoorState() == OPEN)){
-						state = CLOSEDOOR;
+	case IDLE:		if((requestedFloors & (~(sensedPosition))) && (ProxyDoor->getDoorState() == OPEN)){		//If floors are requested and the door is open
+						state = CLOSEDOOR;																	//Close the door
 						ProxyDoor->closeDoor();
 					}
-					else if((requestedFloors & (~(sensedPosition))) && (ProxyDoor->getDoorState() == CLOSED)){
-						if((direction == CUP) && (requestedFloors & (0xFF << (position + 1)))){
-							myMotor->startMotor(UP);
+					else if((requestedFloors & (~(sensedPosition))) && (ProxyDoor->getDoorState() == CLOSED)){ //If floors are requested and the door is closed
+						if((direction == CUP) && (requestedFloors & (0xFF << (position + 1)))){				//If the cabin was driving upwards and a higher floor is requested
+							myMotor->startMotor(UP);														//Drive upwards
 							state = DRIVEUP;
 						}
-						else if((direction == CUP) && ((requestedFloors & (0xFF << (position + 1))) == 0)){
-							myMotor->startMotor(DOWN);
+						else if((direction == CUP) && ((requestedFloors & (0xFF << (position + 1))) == 0)){	//If the cabin was driving upwards and a lower floor is requested
+							myMotor->startMotor(DOWN);														//Drive downwards
 							state = DRIVEDOWN;
 							direction = CDOWN;
 						}
-						else if((direction == CDOWN) && (requestedFloors & (~(0xFF << position)))){
-							myMotor->startMotor(DOWN);
+						else if((direction == CDOWN) && (requestedFloors & (~(0xFF << position)))){			//If the cabin was driving downwards and a lower floor is requested
+							myMotor->startMotor(DOWN);														//Drive downwards
 							state = DRIVEDOWN;
 						}
-						else if((direction == CDOWN) && ((requestedFloors & (~(0xFF << position))) == 0)){
-							myMotor->startMotor(UP);
+						else if((direction == CDOWN) && ((requestedFloors & (~(0xFF << position))) == 0)){	//If the cabin was driving downwards and a higher floor is requested
+							myMotor->startMotor(UP);														//Drive upwards
 							state = DRIVEUP;
 							direction = CUP;
 						}
 					}
 					break;
-	case CLOSEDOOR:	if(ProxyDoor->getDoorState() == CLOSED){
-						if((direction == CUP) && (requestedFloors & (0xFF << (position + 1)))){
-							myMotor->startMotor(UP);
+	case CLOSEDOOR:	if(ProxyDoor->getDoorState() == CLOSED){												//If the door is closed
+						if((direction == CUP) && (requestedFloors & (0xFF << (position + 1)))){				//If cabin is driving up and requested floors are higher
+							myMotor->startMotor(UP);														//Drive up
 							state = DRIVEUP;
 						}
-						else if((direction == CUP) && ((requestedFloors & (0xFF << (position + 1))) == 0)){
-							myMotor->startMotor(DOWN);
+						else if((direction == CUP) && ((requestedFloors & (0xFF << (position + 1))) == 0)){ //If Cabin was driving up and requested floors are lower
+							myMotor->startMotor(DOWN);														//Drive down
 							state = DRIVEDOWN;
 							direction = CDOWN;
 						}
-						else if((direction == CDOWN) && (requestedFloors & (~(0xFF << position)))){
-							myMotor->startMotor(DOWN);
+						else if((direction == CDOWN) && (requestedFloors & (~(0xFF << position)))){			//If cabin was driving down and requested floors are lower
+							myMotor->startMotor(DOWN);														//Drive down
 							state = DRIVEDOWN;
 						}
-						else if((direction == CDOWN) && ((requestedFloors & (~(0xFF << position))) == 0)){
-							myMotor->startMotor(UP);
+						else if((direction == CDOWN) && ((requestedFloors & (~(0xFF << position))) == 0)){	//If cabin was driving down and requested floors are higher
+							myMotor->startMotor(UP);														//Drive up
 							state = DRIVEUP;
 							direction = CUP;
 						}
 					}
 					break;
-	case DRIVEUP:	if((sensedPosition & requestedFloors)){
-						state = OPENDOOR;
+	case DRIVEUP:	if((sensedPosition & requestedFloors)){													//If Cabin is on requested floor
+						state = OPENDOOR;																	//Open doors and stop motor
 						ProxyDoor->openDoor();
 						myMotor->stopMotor();
 					}
 					break;
-	case DRIVEDOWN:	if((sensedPosition & requestedFloors)){
-						state = OPENDOOR;
+	case DRIVEDOWN:	if((sensedPosition & requestedFloors)){													//If Cabin is on requested floor
+						state = OPENDOOR;																	//Open doors and stop motor
 						ProxyDoor->openDoor();
 						myMotor->stopMotor();
 					}
 					break;
-	case OPENDOOR:	if(ProxyDoor->getDoorState() == OPEN){
-						state = IDLE;
+	case OPENDOOR:	if(ProxyDoor->getDoorState() == OPEN){													//If door is open
+						state = IDLE;																		//Clear requested floor and go to wait
 						requestedFloors &= ~(sensedPosition);
 					}
 					break;
